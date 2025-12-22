@@ -17,42 +17,27 @@
 
 body {
     font-family: var(--font-body);
-    color: var(--text-color);
-    /* Pastel Mesh Gradient approximation */
-    background: radial-gradient(at 0% 0%, hsla(253, 16%, 7%, 1) 0, transparent 50%),
-        radial-gradient(at 50% 0%, hsla(225, 39%, 30%, 1) 0, transparent 50%),
-        radial-gradient(at 100% 0%, hsla(339, 49%, 30%, 1) 0, transparent 50%);
-    /* Overriding with the user's pastel colors: Pink, Peach, Mint, Lavender */
-    background:
-        radial-gradient(at 0% 0%, rgb(250, 250, 250) 0px, transparent 50%),
-        radial-gradient(at 100% 0%, rgb(255, 255, 255) 0px, transparent 50%),
-        radial-gradient(at 100% 100%, rgb(255, 255, 255) 0px, transparent 50%),
-        radial-gradient(at 0% 100%, rgba(255, 219, 236, 1) 0px, transparent 50%),
-        linear-gradient(135deg, #fff1eb 0%, #f7f7f7 100%);
-    /* Fallback/Base */
-    background-color: #fff1eb;
+    color: white;
+    /* Clean white text */
+    /* Reference Blue Gradient */
+    background: linear-gradient(180deg, #89f7fe 0%, #66a6ff 100%);
+    /* Alternative more subtle professional blue */
+    background: radial-gradient(circle at 50% 0%, #a1c4fd 0%, #c2e9fb 100%);
+    background: linear-gradient(to bottom, #89f7fe 0%, #66a6ff 100%);
+    /* Let's try to match the "Nearo" image: Soft sky blue top to deeper blue bottom */
+    background: linear-gradient(135deg, #a8edea 0%, #fed6e3 100%);
+    /* Old pastel? No. */
+    background: linear-gradient(to bottom, #4facfe 0%, #00f2fe 100%);
+    /* Too bright? */
+    /* Exact clean blue match attempt */
+    background: linear-gradient(180deg, #92d0fd 0%, #68a2ff 100%);
     background-attachment: fixed;
-    /* Keep background static while scrolling */
-    background-size: 200% 200%;
-    animation: bg-shift 15s ease infinite;
-    /* Subtle background movement */
+    background-size: cover;
     min-height: 100vh;
     overflow-x: hidden;
 }
 
-@keyframes bg-shift {
-    0% {
-        background-position: 0% 50%;
-    }
-
-    50% {
-        background-position: 100% 50%;
-    }
-
-    100% {
-        background-position: 0% 50%;
-    }
-}
+/* Removing animation for cleaner look or keeping it subtle? Reference is static clean. Removing shift for now. */
 
 #main-header {
     position: absolute;
@@ -77,10 +62,16 @@ body {
 
 .logo {
     height: 60px;
-    /* Smaller mobile logo */
     width: auto;
+    /*
+       For Blue Background:
+       Original: White BG, Black Text.
+       1. invert(1) -> Black BG, White Text.
+       2. mix-blend-mode: screen -> Black BG becomes transparent, White Text remains.
+    */
     filter: invert(1) contrast(2);
-    mix-blend-mode: multiply;
+    mix-blend-mode: screen;
+    opacity: 1;
     display: block;
     transition: height 0.3s ease;
 }
@@ -107,7 +98,7 @@ body {
 .hero-kicker {
     font-family: var(--font-heading);
     font-size: 2rem;
-    color: #008080;
+    color: #ffffff;
     /* Teal to match other branding */
     letter-spacing: 1px;
     /* Serifs usually need less spacing than sans */
@@ -119,56 +110,61 @@ body {
 
 h1.hero-title {
     font-family: var(--font-heading);
-    font-size: 3rem;
-    /* Mobile first size */
+    font-size: 4rem;
+    /* Balanced size */
     font-weight: 700;
     line-height: 1.1;
-    letter-spacing: 0;
-    margin-bottom: 1rem;
-    text-transform: uppercase;
+    letter-spacing: -1px;
+    margin-bottom: 2rem;
+    text-transform: none;
+    /* Reference uses Sentence case or Title case, not ALL CAPS usually. User image shows "Get early access" */
     font-style: normal;
     background: none;
     -webkit-text-fill-color: initial;
-    color: #008080;
-    /* Solid Teal */
-    text-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    color: #ffffff;
+    /* Clean White */
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
 h2 {
-    font-size: 3rem;
+    font-size: 2.5rem;
     margin-bottom: 1rem;
+    color: white;
 }
 
 p {
     font-size: 1.25rem;
-    color: #666;
+    color: rgba(255, 255, 255, 0.85);
     line-height: 1.6;
     margin-bottom: 2rem;
 }
 
 /* Buttons */
+/* Buttons - Clean White Pill Style */
 .cta-button,
 button[type="submit"] {
     position: relative;
     padding: 1rem 3rem;
-    font-size: 1.1rem;
-    font-weight: 700;
-    color: rgb(0, 0, 0);
-    background: linear-gradient(45deg, #FF9A9E, #FECFEF, #E0C3FC, #8EC5FC);
-    /* Pastel Dream Gradient */
-    background-size: 300% 300%;
+    font-size: 1rem;
+    font-weight: 600;
+    color: #2b5876;
+    /* Dark Blue Text */
+    background: #ffffff;
+    /* Pure White */
     border: none;
     border-radius: 50px;
     cursor: pointer;
-    transition: all 0.4s ease;
+    transition: all 0.3s ease;
     text-transform: uppercase;
-    letter-spacing: 1.5px;
-    overflow: hidden;
-    z-index: 1;
-    box-shadow: 0 10px 25px rgba(224, 195, 252, 0.5);
-    /* Soft Purple Shadow */
-    animation: gradient-shift 6s ease infinite;
-    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    letter-spacing: 1px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+.cta-button:hover,
+button[type="submit"]:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+    background: #f0f8ff;
 }
 
 .cta-button:hover,

@@ -44,6 +44,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Create a lot of confetti
     for (let i = 0; i < 60; i++) {
-        createConfetti();
+        // createConfetti(); // Confetti disabled per user request
     }
 });
