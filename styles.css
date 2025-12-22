@@ -1,0 +1,670 @@
+:root {
+    --primary-color: #00d2ff;
+    --secondary-color: #3a7bd5;
+    --text-color: #1a1a1a;
+    --background-color: #ffffff;
+    --font-heading: 'Playfair Display',
+        serif;
+    --font-body: 'Outfit',
+        sans-serif;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: var(--font-body);
+    color: var(--text-color);
+    /* Pastel Mesh Gradient approximation */
+    background: radial-gradient(at 0% 0%, hsla(253, 16%, 7%, 1) 0, transparent 50%),
+        radial-gradient(at 50% 0%, hsla(225, 39%, 30%, 1) 0, transparent 50%),
+        radial-gradient(at 100% 0%, hsla(339, 49%, 30%, 1) 0, transparent 50%);
+    /* Overriding with the user's pastel colors: Pink, Peach, Mint, Lavender */
+    background:
+        radial-gradient(at 0% 0%, rgb(250, 250, 250) 0px, transparent 50%),
+        radial-gradient(at 100% 0%, rgb(255, 255, 255) 0px, transparent 50%),
+        radial-gradient(at 100% 100%, rgb(255, 255, 255) 0px, transparent 50%),
+        radial-gradient(at 0% 100%, rgba(255, 219, 236, 1) 0px, transparent 50%),
+        linear-gradient(135deg, #fff1eb 0%, #f7f7f7 100%);
+    /* Fallback/Base */
+    background-color: #fff1eb;
+    background-attachment: fixed;
+    /* Keep background static while scrolling */
+    background-size: 200% 200%;
+    animation: bg-shift 15s ease infinite;
+    /* Subtle background movement */
+    min-height: 100vh;
+    overflow-x: hidden;
+}
+
+@keyframes bg-shift {
+    0% {
+        background-position: 0% 50%;
+    }
+
+    50% {
+        background-position: 100% 50%;
+    }
+
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+#main-header {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding: 1rem 1.5rem;
+    /* Reduced padding for mobile */
+    z-index: 10;
+    display: flex;
+    justify-content: flex-start;
+    /* Or center? Logo usually left or center. Let's do left based on typical requests, or center if it's a holding page. Holding pages often center. But user said "header", implies top bar. I'll stick to top-left or top-center. "360 Partners" looks like a corporate brand. Top-left is safer. */
+    align-items: center;
+}
+
+@media (min-width: 768px) {
+    #main-header {
+        padding: 1.5rem 3rem;
+        /* Original desktop padding */
+    }
+}
+
+.logo {
+    height: 60px;
+    /* Smaller mobile logo */
+    width: auto;
+    filter: invert(1) contrast(2);
+    mix-blend-mode: multiply;
+    display: block;
+    transition: height 0.3s ease;
+}
+
+@media (min-width: 768px) {
+    .logo {
+        height: 90px;
+        /* Original desktop size */
+    }
+}
+
+.section {
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 2rem;
+    position: relative;
+    z-index: 1;
+}
+
+/* Typography */
+.hero-kicker {
+    font-family: var(--font-heading);
+    font-size: 2rem;
+    color: #008080;
+    /* Teal to match other branding */
+    letter-spacing: 1px;
+    /* Serifs usually need less spacing than sans */
+    margin-bottom: 1rem;
+    text-transform: uppercase;
+    /* Keeping uppercase as per previous request, usually Playfair looks good in caps too */
+    font-weight: 700;
+}
+
+h1.hero-title {
+    font-family: var(--font-heading);
+    font-size: 3rem;
+    /* Mobile first size */
+    font-weight: 700;
+    line-height: 1.1;
+    letter-spacing: 0;
+    margin-bottom: 1rem;
+    text-transform: uppercase;
+    font-style: normal;
+    background: none;
+    -webkit-text-fill-color: initial;
+    color: #008080;
+    /* Solid Teal */
+    text-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+h2 {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+}
+
+p {
+    font-size: 1.25rem;
+    color: #666;
+    line-height: 1.6;
+    margin-bottom: 2rem;
+}
+
+/* Buttons */
+.cta-button,
+button[type="submit"] {
+    position: relative;
+    padding: 1rem 3rem;
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: rgb(0, 0, 0);
+    background: linear-gradient(45deg, #FF9A9E, #FECFEF, #E0C3FC, #8EC5FC);
+    /* Pastel Dream Gradient */
+    background-size: 300% 300%;
+    border: none;
+    border-radius: 50px;
+    cursor: pointer;
+    transition: all 0.4s ease;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    overflow: hidden;
+    z-index: 1;
+    box-shadow: 0 10px 25px rgba(224, 195, 252, 0.5);
+    /* Soft Purple Shadow */
+    animation: gradient-shift 6s ease infinite;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.cta-button:hover,
+button[type="submit"]:hover {
+    transform: translateY(-5px) scale(1.05);
+    box-shadow: 0 20px 40px rgba(224, 195, 252, 0.7);
+}
+
+@keyframes gradient-shift {
+    0% {
+        background-position: 0% 50%;
+    }
+
+    50% {
+        background-position: 100% 50%;
+    }
+
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+/* Section Specifics */
+/* Section Specifics */
+#hero {
+    /* bg handled by body, keeping content centered */
+    background: transparent;
+}
+
+#about {
+    background-color: transparent;
+    /* Removed solid bg */
+}
+
+#contact {
+    background-color: rgba(255, 255, 255, 0.3);
+    /* Glassy background */
+    backdrop-filter: blur(10px);
+    border-radius: 30px;
+    margin: 2rem;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+}
+
+.newsletter-form {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    max-width: 400px;
+    margin: 0 auto;
+}
+
+.newsletter-form input {
+    padding: 1rem;
+    border: 2px solid #eee;
+    border-radius: 50px;
+    font-size: 1rem;
+    text-align: center;
+    transition: border-color 0.3s;
+}
+
+.newsletter-form input:focus {
+    outline: none;
+    border-color: var(--primary-color);
+}
+
+@media (min-width: 768px) {
+    h1.hero-title {
+        font-size: 5rem;
+        /* Tablet/Desktop base */
+    }
+
+    .client-text h2 {
+        font-size: 4.5rem;
+    }
+
+    .client-text {
+        padding: 3rem;
+        /* Restore desktop padding */
+        max-width: 550px;
+    }
+
+    .newsletter-form {
+        flex-direction: row;
+        border: 2px solid #eee;
+        border-radius: 50px;
+        padding: 0.25rem;
+    }
+
+    .newsletter-form input {
+        border: none;
+        flex: 1;
+        text-align: left;
+        padding-left: 1.5rem;
+    }
+
+    .newsletter-form button {
+        border-radius: 50px;
+        padding: 0.75rem 2rem;
+    }
+}
+
+/* Company Info Styles */
+.company-info {
+    max-width: 800px;
+    margin: 0 auto;
+    text-align: center;
+    /* Keeping center for consistency */
+}
+
+.section-kicker {
+    font-size: 1rem;
+    color: #008080;
+    /* Teal color */
+    font-weight: 700;
+    margin-bottom: 0.5rem;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+}
+
+.company-info h2 {
+    color: #008080;
+    /* Teal */
+    font-size: 2.5rem;
+    margin-bottom: 1.5rem;
+}
+
+.company-description {
+    color: #008080;
+    /* Teal text */
+    font-size: 1.3rem;
+    font-weight: 400;
+    margin-bottom: 2rem;
+}
+
+.email-link {
+    display: inline-block;
+    color: #1a1a1a;
+    /* Changed to dark for contrast on white/light bg */
+    font-weight: 900;
+    text-decoration: none;
+    font-size: 1.5rem;
+    text-transform: uppercase;
+    padding: 1rem 2rem;
+    border: 2px solid #1a1a1a;
+    border-radius: 50px;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+    z-index: 1;
+}
+
+.email-link::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 0%;
+    height: 100%;
+    background-color: #1a1a1a;
+    transition: width 0.3s ease;
+    z-index: -1;
+}
+
+.email-link:hover {
+    color: white;
+    transform: scale(1.05);
+}
+
+.email-link:hover::before {
+    width: 100%;
+}
+
+
+/* Confetti & Decoration */
+#confetti-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 0;
+    /* Behind content but visible */
+    overflow: hidden;
+}
+
+.confetti {
+    position: absolute;
+    top: -50px;
+    /* Start above screen */
+    will-change: transform;
+    animation-name: float-down;
+    animation-iteration-count: infinite;
+    animation-timing-function: linear;
+}
+
+/* Shapes */
+.confetti.square {
+    width: 15px;
+    height: 15px;
+}
+
+.confetti.rectangle {
+    width: 25px;
+    height: 10px;
+}
+
+.confetti.circle {
+    width: 15px;
+    height: 15px;
+    border-radius: 50%;
+}
+
+.confetti.triangle {
+    width: 0;
+    height: 0;
+    border-left: 10px solid transparent;
+    border-right: 10px solid transparent;
+    border-bottom: 20px solid;
+    /* colored via JS */
+    background-color: transparent !important;
+}
+
+.confetti.line {
+    width: 30px;
+    height: 5px;
+    border-radius: 2px;
+}
+
+.confetti.cross {
+    background: transparent !important;
+    width: 20px;
+    height: 20px;
+    position: absolute;
+}
+
+.confetti.cross::before,
+.confetti.cross::after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 4px;
+    background-color: var(--confetti-color);
+    top: 50%;
+    left: 0;
+    margin-top: -2px;
+    border-radius: 2px;
+}
+
+.confetti.cross::after {
+    transform: rotate(90deg);
+}
+
+@keyframes float-down {
+    0% {
+        transform: translateY(-10vh) rotate(0deg) translateX(0);
+        opacity: 0;
+    }
+
+    10% {
+        opacity: 1;
+    }
+
+    90% {
+        opacity: 1;
+    }
+
+    100% {
+        transform: translateY(110vh) rotate(720deg) translateX(20px);
+        opacity: 0;
+    }
+}
+
+/* Client Hero Section */
+/* Client Hero Section */
+#client-hero {
+    background-color: transparent;
+    /* Light Green Removed */
+    color: #1a1a1a;
+    text-align: left;
+    overflow: hidden;
+    /* For shapes */
+    padding: 0;
+    /* Full width/height control if needed */
+}
+
+.client-content-container {
+    display: flex;
+    flex-direction: column-reverse;
+    /* Image on top on mobile usually, or text on top? Let's do text top mobile. */
+    align-items: center;
+    justify-content: center;
+    /* Centered content */
+    width: 100%;
+    margin: 0 auto;
+    margin: 0 auto;
+    background-color: rgba(255, 255, 255, 0.4);
+    /* Glassy instead of solid green */
+    backdrop-filter: blur(10px);
+    /* overflow: hidden; Removed to allow image to flush */
+    max-width: 1100px;
+    /* overflow: hidden; Removed to allow image to flush */
+    max-width: 1100px;
+    /* Constrain width to bring them closer */
+    /* Full width wrapper? Reference looks like a container but let's stick to safe container width or full width design. Reference image looks like a banner. */
+    /* Actually reference looks like a card inside a container or full screen split. 
+       Let's try to make it look like the reference: 50/50 split. 
+       If I use max-width 1200px and margin auto, it's a card. 
+       I will ensure the image fills the right side of this card completely.
+    */
+    border-radius: 20px;
+    /* Reference implies some border radius maybe? Or straight? Real reference is straight edges usually for full sections. Let's add radius if it's a container. */
+    overflow: hidden;
+    gap: 0;
+    /* Let flex handle it, or small gap */
+}
+
+.client-text {
+    flex: 1;
+    padding: 1.5rem;
+    /* Tighter padding for mobile */
+    z-index: 2;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    max-width: 100%;
+    /* Allow full width on mobile */
+}
+
+.client-text h3 {
+    font-size: 1rem;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    font-weight: 700;
+    margin-bottom: 1rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.client-text h3::before {
+    content: 'S';
+    /* Logo placeholder */
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    width: 24px;
+    height: 24px;
+    background: black;
+    color: white;
+    border-radius: 50%;
+    font-size: 0.8rem;
+}
+
+.client-text h2 {
+    font-family: var(--font-heading);
+    font-size: 3.5rem;
+    line-height: 1.1;
+    margin-bottom: 1.5rem;
+    font-weight: 400;
+    /* Playfair looks good slightly lighter at large sizes */
+}
+
+.client-text p {
+    font-size: 1.1rem;
+    color: #333;
+    margin-bottom: 2rem;
+    max-width: 500px;
+}
+
+.client-text p.client-bio {
+    font-size: 1.35rem;
+    /* Slightly larger as requested "sajifye sundor" implies readability */
+    color: #1a1a1a;
+    line-height: 1.6;
+    margin-bottom: 1.5rem;
+    font-family: var(--font-heading);
+    /* Requested: "coming soon font" which is Playfair Display */
+    font-weight: 500;
+    /* Medium weight for Playfair */
+    max-width: 100%;
+}
+
+.client-text strong {
+    color: #008080;
+    font-weight: 700;
+}
+
+.linkedin-btn {
+    display: inline-block;
+    background: linear-gradient(45deg, #0077b5, #00a0dc);
+    color: white;
+    margin-top: 1rem;
+    text-decoration: none;
+    font-family: var(--font-body);
+    /* Keep button readable sans-serif */
+    font-weight: 700;
+    padding: 1rem 2.5rem;
+    border-radius: 50px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    align-self: flex-start;
+    /* Don't stretch */
+    box-shadow: 0 5px 15px rgba(0, 119, 181, 0.3);
+    transition: all 0.3s ease;
+}
+
+.linkedin-btn:hover {
+    background: linear-gradient(45deg, #005e93, #0088bb);
+    box-shadow: 0 10px 25px rgba(0, 119, 181, 0.5);
+    transform: translateY(-3px);
+}
+
+.client-image {
+    flex: 1;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: auto;
+    min-height: 300px;
+    /* Smaller min-height for mobile */
+    padding: 1rem;
+}
+
+.client-details-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 1.5rem;
+}
+
+.client-image img {
+    width: auto;
+    height: auto;
+    max-height: 100%;
+    max-width: 100%;
+    object-fit: cover;
+    max-width: 400px;
+    border-radius: 20px;
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.15);
+    object-position: center top;
+    display: block;
+}
+
+.client-name-title h3 {
+    font-family: var(--font-body);
+    /* Sans serif for modern look or font-heading? Reference looks clean sans-serif */
+    color: #008080;
+    /* Teal */
+    font-size: 1.5rem;
+    font-weight: 700;
+    margin-bottom: 0.5rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.client-name-title p {
+    font-family: var(--font-body);
+    color: #008080;
+    /* Teal */
+    font-size: 1.2rem;
+    font-weight: 400;
+    margin: 0;
+}
+
+@media (min-width: 768px) {
+    .client-content-container {
+        flex-direction: row;
+        height: auto;
+        /* Allow height to fit */
+    }
+
+    .client-text h2 {
+        font-size: 4.5rem;
+    }
+
+    .client-image {
+        /* Crop/Mask approach for desktop */
+        overflow: hidden;
+        height: auto;
+        align-self: stretch;
+        /* Force same height as text column */
+        padding: 3rem;
+        /* More padding on desktop */
+        min-height: 500px;
+        /* Taller on desktop */
+    }
+
+    .client-image img {
+        height: auto;
+        width: 100%;
+        max-height: 500px;
+        /* Limit height on desktop */
+        object-fit: cover;
+    }
+}
