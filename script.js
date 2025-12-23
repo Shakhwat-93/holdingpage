@@ -86,4 +86,104 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         });
     }
+    // ==========================================
+    // GSAP ANIMATIONS (High Level Joss Mode)
+    // ==========================================
+
+    // Register ScrollTrigger
+    gsap.registerPlugin(ScrollTrigger);
+
+    // Initial Hide to prevent flash
+    gsap.set('.hero-title, .hero-subtitle, .hero-text, .hero-btn', { y: 100, opacity: 0 });
+    gsap.set('#client-hero', { opacity: 0, y: 100 });
+    gsap.set('#trusted-by', { opacity: 0, scale: 0.8 });
+    gsap.set('#contact', { opacity: 0, y: 100 });
+
+    // 1. HERO ENTRANCE (Staggered & Elastic)
+    const heroTl = gsap.timeline({ defaults: { ease: "power4.out" } });
+
+    heroTl
+        .to('.hero-title', { y: 0, opacity: 1, duration: 1.8, delay: 0.2 })
+        .to('.hero-subtitle', { y: 0, opacity: 1, duration: 1.5 }, "-=1.4")
+        .to('.hero-text', { y: 0, opacity: 1, duration: 1.5 }, "-=1.3")
+        .to('.hero-btn', { y: 0, opacity: 1, duration: 1.2, ease: "elastic.out(1, 0.3)" }, "-=1.0");
+
+    // 2. 3D TILT EFFECT (Mouse Parallax)
+    const heroCard = document.querySelector('.glass-card');
+    if (heroCard) {
+        heroCard.addEventListener('mousemove', (e) => {
+            const { left, top, width, height } = heroCard.getBoundingClientRect();
+            const x = (e.clientX - left) / width - 0.5;
+            const y = (e.clientY - top) / height - 0.5;
+
+            gsap.to(heroCard, {
+                rotationY: x * 10, // Rotate Y axis based on X mouse
+                rotationX: -y * 10, // Rotate X axis based on Y mouse (inverted)
+                transformPerspective: 1000,
+                duration: 0.5,
+                ease: "power2.out"
+            });
+        });
+
+        heroCard.addEventListener('mouseleave', () => {
+            gsap.to(heroCard, {
+                rotationY: 0,
+                rotationX: 0,
+                duration: 1,
+                ease: "elastic.out(1, 0.5)"
+            });
+        });
+    }
+
+    // 3. SCROLL REVEALS (Client Section)
+    gsap.to('#client-hero', {
+        scrollTrigger: {
+            trigger: '#client-hero',
+            start: "top 80%",
+            toggleActions: "play none none reverse"
+        },
+        y: 0,
+        opacity: 1,
+        duration: 1.5,
+        ease: "power3.out"
+    });
+
+    // 4. TRUSTED BY (Explosive Pop)
+    gsap.to('#trusted-by', {
+        scrollTrigger: {
+            trigger: '#trusted-by',
+            start: "top 85%",
+        },
+        scale: 1,
+        opacity: 1,
+        duration: 1.5,
+        ease: "back.out(1.2)" // Overshoot effect
+    });
+
+    // 5. CONTACT SECTION (Smooth Glide)
+    gsap.to('#contact', {
+        scrollTrigger: {
+            trigger: '#contact',
+            start: "top 75%",
+        },
+        y: 0,
+        opacity: 1,
+        duration: 1.5,
+        ease: "power3.out"
+    });
+
+    // 6. MAGNETIC BUTTONS
+    document.querySelectorAll('.hero-btn, .linkedin-btn, button[type="submit"]').forEach(btn => {
+        btn.addEventListener('mousemove', (e) => {
+            const { left, top, width, height } = btn.getBoundingClientRect();
+            const x = (e.clientX - left - width / 2) * 0.3; // Limit movement
+            const y = (e.clientY - top - height / 2) * 0.3;
+
+            gsap.to(btn, { x: x, y: y, duration: 0.3 });
+        });
+        btn.addEventListener('mouseleave', () => {
+            gsap.to(btn, { x: 0, y: 0, duration: 0.5, ease: "elastic.out(1, 0.3)" });
+        });
+    });
+
 });

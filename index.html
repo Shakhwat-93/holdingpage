@@ -123,28 +123,25 @@
             class="w-full max-w-7xl glass-card rounded-[2rem] md:rounded-[3rem] p-8 md:p-24 flex flex-col items-center text-center relative overflow-hidden">
 
             <!-- Hero Content -->
-            <div class="relative z-10 max-w-4xl mx-auto flex flex-col items-center">
-                <h1
-                    class="text-4xl md:text-7xl font-extrabold tracking-tight mb-6 animate-[reveal_1s_ease-out_forwards]">
+            <div class="relative z-10 max-w-4xl mx-auto flex flex-col items-center hero-content">
+                <h1 class="text-4xl md:text-7xl font-extrabold tracking-tight mb-6 hero-title">
                     <span
                         class="bg-clip-text text-transparent bg-gradient-to-r from-slate-900 via-blue-800 to-blue-600">
                         New Site <br> Under Development
                     </span>
                 </h1>
 
-                <h2
-                    class="text-2xl md:text-3xl font-bold text-slate-700 mb-8 opacity-0 animate-[reveal_1s_ease-out_0.2s_forwards]">
+                <h2 class="text-2xl md:text-3xl font-bold text-slate-700 mb-8 hero-subtitle">
                     Elite Fractional & Full-Time Talent
                 </h2>
 
-                <p
-                    class="text-lg md:text-xl text-slate-500 max-w-2xl leading-relaxed mb-10 opacity-0 animate-[reveal_1s_ease-out_0.4s_forwards]">
+                <p class="text-lg md:text-xl text-slate-500 max-w-2xl leading-relaxed mb-10 hero-text">
                     360Partners connects high-growth businesses with exceptional fractional and full-time professionals
                     across operations, finance, technology, and strategy.
                 </p>
 
                 <button onclick="document.getElementById('contact').scrollIntoView({behavior: 'smooth'});"
-                    class="group relative inline-flex items-center justify-center px-8 py-4 text-base font-bold text-white transition-all duration-200 bg-blue-600 rounded-full hover:bg-blue-700 hover:shadow-lg hover:shadow-blue-600/30 hover:-translate-y-1 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-600 opacity-0 animate-[reveal_1s_ease-out_0.6s_forwards]">
+                    class="hero-btn group relative inline-flex items-center justify-center px-8 py-4 text-base font-bold text-white transition-all duration-200 bg-blue-600 rounded-full hover:bg-blue-700 hover:shadow-lg hover:shadow-blue-600/30 hover:-translate-y-1 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-600">
                     Notify Me!
                     <svg class="w-5 h-5 ml-2 -mr-1 transition-transform group-hover:translate-x-1" fill="none"
                         stroke="currentColor" viewBox="0 0 24 24">
@@ -369,7 +366,10 @@
         </div>
     </div>
 
-    <script src="script.js"></script>
+    <!-- GSAP & ScrollTrigger -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    <script src="script.js?v=3"></script>
 </body>
 
 </html>
