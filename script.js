@@ -47,13 +47,20 @@ document.addEventListener('DOMContentLoaded', () => {
         // createConfetti(); // Confetti disabled per user request
     }
     // Premium Popup Logic
+    // Premium Popup Logic
     const popup = document.getElementById('success-popup');
+    const popupCard = document.querySelector('.popup-card-content');
     const contactForm = document.querySelector('.clean-form');
-    const closeBtn = document.querySelector('.close-popup-btn');
 
-    // Make closePopup available globally if needed, or stick to event listeners
+    // Make closePopup available globally
     window.closePopup = function () {
-        if (popup) popup.classList.remove('active');
+        if (popup) {
+            popup.classList.add('opacity-0', 'pointer-events-none');
+            // Reset card animation
+            if (popupCard) {
+                popupCard.classList.add('translate-y-10', 'scale-95');
+            }
+        }
     }
 
     if (contactForm) {
@@ -61,7 +68,13 @@ document.addEventListener('DOMContentLoaded', () => {
             e.preventDefault(); // Stop actual submission
 
             // Show Popup
-            if (popup) popup.classList.add('active');
+            if (popup) {
+                popup.classList.remove('opacity-0', 'pointer-events-none');
+                // Trigger card animation
+                if (popupCard) {
+                    popupCard.classList.remove('translate-y-10', 'scale-95');
+                }
+            }
         });
     }
 
