@@ -93,14 +93,14 @@
     </div>
 
     <!-- Header -->
-    <header class="absolute top-0 left-0 w-full p-8 z-50 flex justify-start">
+    <header class="absolute top-0 left-0 w-full p-4 md:p-8 z-50 flex justify-start">
         <div class="logo-container">
             <!-- Used original filter logic via tailwind arbitrary values or inline style if needed, 
                  but for this logo on light bg, simple mix-blend might assume white logo. 
                  Let's stick to the CSS logic: grayscale invert etc. 
             -->
             <img src="logo_original.jpg" alt="360 Partners Logo"
-                class="h-16 w-auto transition-all duration-300 [filter:grayscale(100%)_contrast(100%)_invert(100%)] mix-blend-screen">
+                class="h-12 md:h-16 w-auto transition-all duration-300 [filter:grayscale(100%)_contrast(100%)_invert(100%)] mix-blend-screen">
         </div>
     </header>
 
@@ -108,14 +108,14 @@
     <div id="confetti-container" class="fixed inset-0 pointer-events-none z-50"></div>
 
     <!-- Hero Section -->
-    <section id="hero" class="relative z-10 min-h-screen flex items-center justify-center p-6 md:p-12">
+    <section id="hero" class="relative z-10 min-h-screen flex items-center justify-center p-4 md:p-12">
         <div
-            class="w-full max-w-7xl glass-card rounded-[3rem] p-12 md:p-24 flex flex-col items-center text-center relative overflow-hidden">
+            class="w-full max-w-7xl glass-card rounded-[2rem] md:rounded-[3rem] p-8 md:p-24 flex flex-col items-center text-center relative overflow-hidden">
 
             <!-- Hero Content -->
             <div class="relative z-10 max-w-4xl mx-auto flex flex-col items-center">
                 <h1
-                    class="text-5xl md:text-7xl font-extrabold tracking-tight mb-6 animate-[reveal_1s_ease-out_forwards]">
+                    class="text-4xl md:text-7xl font-extrabold tracking-tight mb-6 animate-[reveal_1s_ease-out_forwards]">
                     <span
                         class="bg-clip-text text-transparent bg-gradient-to-r from-slate-900 via-blue-800 to-blue-600">
                         New Site <br> Under Development
