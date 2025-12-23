@@ -1,12 +1,17 @@
 :root {
-    --primary-color: #00d2ff;
-    --secondary-color: #3a7bd5;
-    --text-color: #1a1a1a;
-    --background-color: #ffffff;
-    --font-heading: 'Playfair Display',
-        serif;
-    --font-body: 'Outfit',
-        sans-serif;
+    --primary-color: #06B6D4;
+    --secondary-color: #1E3A8A;
+    /* Deep Navy */
+    --text-color: #0f172a;
+    /* Slate 900 */
+    --text-muted: #475569;
+    /* Slate 600 */
+    --background-color: #F8FAFC;
+    /* Clean Cream/Slate-50 */
+    --hero-gradient: linear-gradient(135deg, #60A5FA 0%, #2563EB 100%);
+    /* Vivid Blue */
+    --font-heading: 'Inter', sans-serif;
+    --font-body: 'Inter', sans-serif;
 }
 
 * {
@@ -17,46 +22,107 @@
 
 body {
     font-family: var(--font-body);
-    color: white;
-    /* Clean white text */
-    /* Reference Blue Gradient */
-    background: linear-gradient(180deg, #89f7fe 0%, #66a6ff 100%);
-    /* Alternative more subtle professional blue */
-    background: radial-gradient(circle at 50% 0%, #a1c4fd 0%, #c2e9fb 100%);
-    background: linear-gradient(to bottom, #89f7fe 0%, #66a6ff 100%);
-    /* Let's try to match the "Nearo" image: Soft sky blue top to deeper blue bottom */
-    background: linear-gradient(135deg, #a8edea 0%, #fed6e3 100%);
-    /* Old pastel? No. */
-    background: linear-gradient(to bottom, #4facfe 0%, #00f2fe 100%);
-    /* Too bright? */
-    /* Exact clean blue match attempt */
-    background: linear-gradient(180deg, #92d0fd 0%, #68a2ff 100%);
-    background-attachment: fixed;
-    background-size: cover;
+    color: var(--text-color);
+    background-color: var(--background-color);
+    /* Soft Light Blue Gradient */
+    background-image: linear-gradient(135deg, #F0F9FF 0%, #E0F2FE 100%);
     min-height: 100vh;
     overflow-x: hidden;
+    position: relative;
+    /* For ambient bg */
 }
 
-/* Removing animation for cleaner look or keeping it subtle? Reference is static clean. Removing shift for now. */
-
-#main-header {
-    position: absolute;
+/* Ambient Background Logic */
+.ambient-background {
+    position: fixed;
     top: 0;
     left: 0;
     width: 100%;
-    padding: 1rem 1.5rem;
-    /* Reduced padding for mobile */
+    height: 100%;
+    overflow: hidden;
+    z-index: -1;
+    /* Behind everything */
+    pointer-events: none;
+}
+
+.orb {
+    position: absolute;
+    border-radius: 50%;
+    filter: blur(80px);
+    opacity: 0.6;
+    animation: float-orb 20s infinite ease-in-out alternate;
+}
+
+.orb-1 {
+    width: 60vw;
+    height: 60vw;
+    background: radial-gradient(circle, rgba(96, 165, 250, 0.2) 0%, rgba(255, 255, 255, 0) 70%);
+    top: -10%;
+    left: -10%;
+    animation-duration: 25s;
+}
+
+.orb-2 {
+    width: 50vw;
+    height: 50vw;
+    background: radial-gradient(circle, rgba(37, 99, 235, 0.15) 0%, rgba(255, 255, 255, 0) 70%);
+    bottom: -10%;
+    right: -10%;
+    animation-duration: 30s;
+    animation-delay: -5s;
+}
+
+.orb-3 {
+    width: 40vw;
+    height: 40vw;
+    background: radial-gradient(circle, rgba(6, 182, 212, 0.15) 0%, rgba(255, 255, 255, 0) 70%);
+    /* Cyan */
+    top: 40%;
+    left: 40%;
+    animation-duration: 35s;
+    animation-delay: -10s;
+}
+
+@keyframes float-orb {
+    0% {
+        transform: translate(0, 0) scale(1);
+    }
+
+    50% {
+        transform: translate(5%, 10%) scale(1.1);
+    }
+
+    100% {
+        transform: translate(-5%, 5%) scale(0.95);
+    }
+}
+
+#main-header {
+    position: absolute;
+    /* Adjust position to sit INSIDE the hero card margins */
+    top: 1.5rem;
+    left: 1.5rem;
+    width: calc(100% - 3rem);
+    /* Full width minus margins */
+    padding: 1.5rem 3rem;
     z-index: 10;
     display: flex;
     justify-content: flex-start;
-    /* Or center? Logo usually left or center. Let's do left based on typical requests, or center if it's a holding page. Holding pages often center. But user said "header", implies top bar. I'll stick to top-left or top-center. "360 Partners" looks like a corporate brand. Top-left is safer. */
     align-items: center;
 }
 
 @media (min-width: 768px) {
     #main-header {
         padding: 1.5rem 3rem;
-        /* Original desktop padding */
+    }
+}
+
+@media (max-width: 768px) {
+    #main-header {
+        top: 1rem;
+        left: 1rem;
+        width: calc(100% - 2rem);
+        padding: 1rem 1.5rem;
     }
 }
 
@@ -64,12 +130,12 @@ body {
     height: 60px;
     width: auto;
     /*
-       For Blue Background:
-       Original: White BG, Black Text.
-       1. invert(1) -> Black BG, White Text.
-       2. mix-blend-mode: screen -> Black BG becomes transparent, White Text remains.
+       Advanced Background Removal:
+       1. grayscale(1) contrast(100): Forces image to purely Black Text on White BG.
+       2. invert(1): Swaps to White Text on Black BG.
+       3. mix-blend-mode: screen: Black BG becomes transparent. Result: Pure White Text.
     */
-    filter: invert(1) contrast(2);
+    filter: grayscale(100%) contrast(100%) invert(100%);
     mix-blend-mode: screen;
     opacity: 1;
     display: block;
@@ -79,9 +145,10 @@ body {
 @media (min-width: 768px) {
     .logo {
         height: 90px;
-        /* Original desktop size */
     }
 }
+
+/* Removed Text Logo Styles as we reverted to Image */
 
 .section {
     min-height: 100vh;
@@ -95,82 +162,170 @@ body {
 }
 
 /* Typography */
+/* Typography inside Hero (Needs to be White) */
+#hero .hero-kicker {
+    font-family: var(--font-body);
+    font-size: 1rem;
+    color: #2563EB;
+    /* Bright Blue */
+    letter-spacing: 3px;
+    margin-bottom: 1.5rem;
+    text-transform: uppercase;
+    font-weight: 600;
+    background: #EFF6FF;
+    /* Soft Blue Bg */
+    padding: 0.5rem 1rem;
+    border-radius: 20px;
+    display: inline-block;
+}
+
 .hero-kicker {
     font-family: var(--font-heading);
     font-size: 2rem;
-    color: #ffffff;
-    /* Teal to match other branding */
+    color: var(--secondary-color);
+    /* Navy Kicker */
     letter-spacing: 1px;
-    /* Serifs usually need less spacing than sans */
     margin-bottom: 1rem;
     text-transform: uppercase;
-    /* Keeping uppercase as per previous request, usually Playfair looks good in caps too */
     font-weight: 700;
 }
+
+#hero .hero-sub-headline {
+    font-family: var(--font-body);
+    font-size: 1.5rem;
+    font-weight: 600;
+    /* Slightly bolder for dark text */
+    color: #1e293b;
+    /* Dark Navy to stand out on white */
+    margin-bottom: 2rem;
+    text-transform: none;
+    letter-spacing: 0.5px;
+    line-height: 1.4;
+}
+
+.hero-sub-headline {
+    font-family: var(--font-heading);
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: var(--secondary-color);
+    /* Deep Navy */
+    margin-bottom: 1.5rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    text-shadow: none;
+    /* Clean look, no shadow needed on light theme */
+}
+
+#hero h1.hero-title {
+    font-family: var(--font-body);
+    font-size: 3.5rem;
+    font-weight: 800;
+    /* Extra bold */
+    line-height: 1.1;
+    letter-spacing: -1.5px;
+    /* Tighter tracking */
+    margin-bottom: 1rem;
+    text-transform: none;
+    color: #1e293b;
+    /* Dark Navy */
+    order: 0;
+}
+
+/* Re-ordering visually: Title (Small), Sub-Headline (Big) */
 
 h1.hero-title {
     font-family: var(--font-heading);
     font-size: 4rem;
-    /* Balanced size */
     font-weight: 700;
     line-height: 1.1;
     letter-spacing: -1px;
     margin-bottom: 2rem;
     text-transform: none;
-    /* Reference uses Sentence case or Title case, not ALL CAPS usually. User image shows "Get early access" */
     font-style: normal;
     background: none;
     -webkit-text-fill-color: initial;
-    color: #ffffff;
-    /* Clean White */
-    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    color: var(--secondary-color);
+    /* Deep Navy */
+    text-shadow: none;
+}
+
+/* On mobile, adjust sizes */
+@media (max-width: 768px) {
+    #hero h1.hero-title {
+        font-size: 2.5rem;
+    }
+
+    #hero .hero-sub-headline {
+        font-size: 1.2rem;
+    }
 }
 
 h2 {
     font-size: 2.5rem;
     margin-bottom: 1rem;
-    color: white;
+    color: var(--secondary-color);
+    /* Navy for rest of page */
+}
+
+/* Hero Paragraph */
+#hero p {
+    color: #64748b;
+    /* Slate Gray */
+    max-width: 600px;
+    /* Limit width for readability */
+    margin-left: auto;
+    margin-right: auto;
 }
 
 p {
     font-size: 1.25rem;
-    color: rgba(255, 255, 255, 0.85);
+    color: var(--text-muted);
+    /* Slate Gray */
     line-height: 1.6;
     margin-bottom: 2rem;
 }
 
-/* Buttons */
-/* Buttons - Clean White Pill Style */
+/* Buttons - Standard (Navy) for Page */
 .cta-button,
 button[type="submit"] {
     position: relative;
     padding: 1rem 3rem;
     font-size: 1rem;
     font-weight: 600;
-    color: #2b5876;
-    /* Dark Blue Text */
-    background: #ffffff;
-    /* Pure White */
+    color: #ffffff;
+    /* White Text */
+    background: var(--secondary-color);
+    /* Navy Bg */
     border: none;
     border-radius: 50px;
     cursor: pointer;
     transition: all 0.3s ease;
     text-transform: uppercase;
     letter-spacing: 1px;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 4px 15px rgba(30, 58, 138, 0.2);
+    /* Navy Shadow */
+}
+
+/* Hero Button Special Override - White Pill */
+/* Hero Button Special Override - Removed to use standard Navy button */
+/* Or if we want it to be even more special? Let's stick to standard consistent Navy pill */
+#hero .cta-button {
+    /* No overrides needed if we want standard Navy */
+    /* But to ensure it stands out on white, maybe a bit larger shadow? */
+    box-shadow: 0 10px 25px rgba(37, 99, 235, 0.25);
+}
+
+#hero .cta-button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 15px 35px rgba(37, 99, 235, 0.35);
 }
 
 .cta-button:hover,
 button[type="submit"]:hover {
     transform: translateY(-2px);
-    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
-    background: #f0f8ff;
-}
-
-.cta-button:hover,
-button[type="submit"]:hover {
-    transform: translateY(-5px) scale(1.05);
-    box-shadow: 0 20px 40px rgba(224, 195, 252, 0.7);
+    box-shadow: 0 8px 25px rgba(30, 58, 138, 0.3);
+    background: #172554;
+    /* Darker Navy */
 }
 
 @keyframes gradient-shift {
@@ -190,79 +345,462 @@ button[type="submit"]:hover {
 /* Section Specifics */
 /* Section Specifics */
 #hero {
-    /* bg handled by body, keeping content centered */
-    background: transparent;
+    /* 
+       Clean Blue-Teal Gradient:
+       As requested: "Clean, Blue, Teal".
+       Linear gradient provides a smoother, more modern look than the complex mesh.
+       From Cyan-500 (#06b6d4) to Blue-600 (#2563eb).
+    */
+    /* 
+       Clean White Card:
+       Matching the modern "Get in Touch" aesthetic.
+       Solid White bg, subtle shadow, clean border.
+    */
+    background: #ffffff;
+
+    margin: 1.5rem;
+    border-radius: 40px;
+    width: calc(100% - 3rem);
+    min-height: 85vh;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.03);
+    /* Subtle clean shadow */
+
+    /* Subtle border */
+    border: 1px solid #f1f5f9;
+
+    display: flex;
+    flex-direction: column;
+    padding-top: 8rem;
+    position: relative;
+    overflow: hidden;
+}
+
+@media (max-width: 768px) {
+    #hero {
+        margin: 1rem;
+        width: calc(100% - 2rem);
+        border-radius: 30px;
+        padding-top: 6rem;
+    }
 }
 
 #about {
     background-color: transparent;
-    /* Removed solid bg */
 }
+
+/* Contact Section - Keep Cream/White Glass */
+/* ---------------------------------------------------- */
+/* Redesigned Contact Section (Reference Style) */
+/* ---------------------------------------------------- */
 
 #contact {
-    background-color: rgba(255, 255, 255, 0.3);
-    /* Glassy background */
-    backdrop-filter: blur(10px);
-    border-radius: 30px;
-    margin: 2rem;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+    /* Main Section Style override */
+    background-color: transparent;
+    border: none;
+    box-shadow: none;
+    margin: 0;
+    padding: 3rem 1.5rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
-.newsletter-form {
-    display: flex;
-    flex-direction: column;
-    gap: 1rem;
-    max-width: 400px;
+.contact-wrapper {
+    width: 100%;
+    max-width: 1200px;
     margin: 0 auto;
 }
 
-.newsletter-form input {
-    padding: 1rem;
-    border: 2px solid #eee;
-    border-radius: 50px;
-    font-size: 1rem;
+.contact-section-header {
     text-align: center;
-    transition: border-color 0.3s;
+    margin-bottom: 3rem;
 }
 
-.newsletter-form input:focus {
+.contact-section-header h2 {
+    font-family: var(--font-body);
+    font-size: 3rem;
+    font-weight: 700;
+    color: #1e293b;
+    /* Dark Slate */
+    margin-bottom: 0.5rem;
+    letter-spacing: -1px;
+}
+
+.contact-section-header p {
+    font-size: 1.2rem;
+    color: var(--text-muted);
+    margin-bottom: 0;
+}
+
+.contact-card-main {
+    background: #ffffff;
+    border-radius: 40px;
+    padding: 2rem;
+    display: flex;
+    flex-direction: column;
+    /* Mobile first stack */
+    gap: 3rem;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.03);
+    /* Extremely subtle shadow like reference */
+    border: 1px solid #f1f5f9;
+}
+
+/* Left Side: Info */
+.contact-info-side {
+    flex: 1;
+    text-align: left;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 1rem;
+}
+
+.contact-info-side .section-kicker {
+    font-size: 0.85rem;
+    color: var(--text-muted);
+    letter-spacing: 1px;
+    margin-bottom: 0.5rem;
+    font-weight: 600;
+}
+
+.contact-headline {
+    font-family: var(--font-body);
+    /* Inter */
+    font-size: 2.75rem;
+    font-weight: 600;
+    /* Clean semi-bold */
+    color: #111827;
+    /* Darkest Navy/Black */
+    line-height: 1.1;
+    margin-bottom: 1.5rem;
+    letter-spacing: -0.02em;
+}
+
+.contact-desc {
+    font-size: 1.1rem;
+    color: #6b7280;
+    /* Neutral Gray */
+    max-width: 400px;
+    margin-bottom: 3rem;
+    line-height: 1.6;
+}
+
+.contact-details {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.contact-item {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.icon-box {
+    width: 48px;
+    height: 48px;
+    background: #EFF6FF;
+    /* Very light blue bg for icon */
+    border-radius: 12px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: var(--secondary-color);
+}
+
+.item-text {
+    display: flex;
+    flex-direction: column;
+}
+
+.item-text .label {
+    font-size: 0.8rem;
+    color: #9ca3af;
+    margin-bottom: 2px;
+}
+
+.item-text .value {
+    font-size: 1rem;
+    color: #1f2937;
+    font-weight: 500;
+    text-decoration: none;
+}
+
+/* Centered Contact Layout Styles */
+.contact-methods-row {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    margin-top: 4rem;
+    /* More spacing */
+    flex-wrap: wrap;
+    width: 100%;
+}
+
+@keyframes float-card {
+
+    0%,
+    100% {
+        transform: translateY(0);
+        box-shadow: 0 20px 40px rgba(0, 0, 0, 0.06);
+    }
+
+    50% {
+        transform: translateY(-8px);
+        box-shadow: 0 30px 60px rgba(37, 99, 235, 0.15);
+    }
+
+    /* Subtle blue glow lift */
+}
+
+.contact-method-card {
+    background: white;
+    padding: 1.5rem 4rem;
+    /* Lots of horizontal padding like reference */
+    border-radius: 30px;
+    /* Smooth rounded corners */
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.06);
+    /* Stronger premium shadow */
+    border: 1px solid rgba(255, 255, 255, 0.5);
+
+    /* Unique: Floating Animation */
+    animation: float-card 6s ease-in-out infinite;
+
+    position: relative;
+    overflow: hidden;
+    /* For shine effect */
+    transition: all 0.3s ease;
+}
+
+/* Unique Hover Effect: Subtle border glow & lift pause */
+.contact-method-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    border-radius: 30px;
+    padding: 2px;
+    /* Border width */
+    background: linear-gradient(135deg, #60A5FA, #2563EB);
+    /* Blue gradient */
+    -webkit-mask:
+        linear-gradient(#fff 0 0) content-box,
+        linear-gradient(#fff 0 0);
+    -webkit-mask-composite: xor;
+    mask-composite: exclude;
+    opacity: 0;
+    /* Hidden by default */
+    transition: opacity 0.3s ease;
+    pointer-events: none;
+}
+
+.contact-method-card:hover {
+    animation-play-state: paused;
+    /* Pause float on interact */
+    transform: translateY(-5px) scale(1.02);
+    box-shadow: 0 30px 60px rgba(37, 99, 235, 0.2);
+    /* Richer blue shadow */
+}
+
+.contact-method-card:hover::before {
+    opacity: 1;
+    /* Show gradient border on hover */
+}
+
+.contact-method-card .icon-box {
+    width: 60px;
+    height: 60px;
+    background: #EFF6FF;
+    /* Soft Blue */
+    border-radius: 16px;
+    /* Soft square */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #2563EB;
+    font-size: 1.5rem;
+    transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.contact-method-card:hover .icon-box {
+    transform: scale(1.1) rotate(5deg);
+    /* Playful nudge */
+    background: #2563EB;
+    /* Turn solid blue */
+    color: white;
+    /* Icon turns white */
+    box-shadow: 0 10px 20px rgba(37, 99, 235, 0.3);
+}
+
+.contact-method-card .item-text {
+    display: flex;
+    flex-direction: column;
+}
+
+.contact-method-card .label {
+    font-size: 0.9rem;
+    color: #94a3b8;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-weight: 600;
+    margin-bottom: 0.25rem;
+    transition: color 0.3s;
+}
+
+.contact-method-card:hover .label {
+    color: #2563EB;
+    /* Label turns blue */
+}
+
+.contact-method-card .value {
+    font-size: 1.35rem;
+    /* Larger text */
+    color: #1e293b;
+    font-weight: 700;
+    text-decoration: none;
+    line-height: 1;
+}
+
+.contact-card-centered {
+    max-width: 600px;
+    /* Narrower centered form */
+    margin: 0 auto;
+    width: 100%;
+    padding: 2.5rem;
+    flex-direction: column;
+}
+
+.form-row-2 {
+    display: flex;
+    gap: 1.5rem;
+    width: 100%;
+}
+
+.form-row-2 .form-group {
+    flex: 1;
+}
+
+.full-width-btn {
+    width: 100%;
+    justify-content: center;
+    padding: 1rem;
+}
+
+@media (max-width: 768px) {
+    .form-row-2 {
+        flex-direction: column;
+        gap: 1rem;
+    }
+}
+
+.clean-form {
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+    gap: 0.5rem;
+}
+
+.form-group label {
+    font-size: 0.9rem;
+    color: #6b7280;
+    font-weight: 500;
+}
+
+.form-group input,
+.form-group select,
+.form-group textarea {
+    width: 100%;
+    background: #F3F4F6;
+    /* Light gray input bg from reference */
+    border: 1px solid transparent;
+    /* No border initially */
+    padding: 1rem 1.25rem;
+    border-radius: 12px;
+    font-family: var(--font-body);
+    font-size: 1rem;
+    color: #1f2937;
+    transition: all 0.2s;
+}
+
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus {
     outline: none;
-    border-color: var(--primary-color);
+    background: #ffffff;
+    border-color: #3b82f6;
+    /* Focus Blue */
+    box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
 }
 
-@media (min-width: 768px) {
-    h1.hero-title {
-        font-size: 5rem;
-        /* Tablet/Desktop base */
+.submit-btn-clean {
+    margin-top: 1rem;
+    background-color: #0066FF;
+    /* Vivid Blue from reference button */
+    color: white;
+    border: none;
+    border-radius: 50px;
+    /* Pillow shape */
+    padding: 0.4rem 0.5rem;
+    /* Compact height, wide width controlled by flex */
+    padding-right: 2rem;
+    font-size: 1rem;
+    font-weight: 600;
+    display: inline-flex;
+    align-items: center;
+    gap: 1rem;
+    cursor: pointer;
+    align-self: flex-start;
+    /* Do not stretch */
+    transition: transform 0.2s;
+    box-shadow: 0 4px 12px rgba(0, 102, 255, 0.3);
+}
+
+.submit-btn-clean:hover {
+    transform: translateY(-2px);
+    background-color: #005ce6;
+}
+
+.arrow-circle {
+    background: rgba(255, 255, 255, 0.2);
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.2rem;
+    line-height: 1;
+}
+
+@media (min-width: 900px) {
+    #contact {
+        padding: 4rem;
     }
 
-    .client-text h2 {
-        font-size: 4.5rem;
-    }
-
-    .client-text {
-        padding: 3rem;
-        /* Restore desktop padding */
-        max-width: 550px;
-    }
-
-    .newsletter-form {
+    .contact-card-main {
         flex-direction: row;
-        border: 2px solid #eee;
-        border-radius: 50px;
-        padding: 0.25rem;
+        padding: 4rem;
+        gap: 4rem;
     }
 
-    .newsletter-form input {
-        border: none;
-        flex: 1;
-        text-align: left;
-        padding-left: 1.5rem;
+    .contact-headline {
+        font-size: 3.5rem;
     }
 
-    .newsletter-form button {
-        border-radius: 50px;
-        padding: 0.75rem 2rem;
+    .contact-form-card {
+        padding: 3rem;
     }
 }
 
@@ -271,13 +809,11 @@ button[type="submit"]:hover {
     max-width: 800px;
     margin: 0 auto;
     text-align: center;
-    /* Keeping center for consistency */
 }
 
 .section-kicker {
     font-size: 1rem;
-    color: #008080;
-    /* Teal color */
+    color: var(--secondary-color);
     font-weight: 700;
     margin-bottom: 0.5rem;
     letter-spacing: 2px;
@@ -285,15 +821,13 @@ button[type="submit"]:hover {
 }
 
 .company-info h2 {
-    color: #008080;
-    /* Teal */
+    color: var(--secondary-color);
     font-size: 2.5rem;
     margin-bottom: 1.5rem;
 }
 
 .company-description {
-    color: #008080;
-    /* Teal text */
+    color: var(--secondary-color);
     font-size: 1.3rem;
     font-weight: 400;
     margin-bottom: 2rem;
@@ -301,14 +835,15 @@ button[type="submit"]:hover {
 
 .email-link {
     display: inline-block;
-    color: #1a1a1a;
-    /* Changed to dark for contrast on white/light bg */
+    color: var(--secondary-color);
+    /* Navy Text */
     font-weight: 900;
     text-decoration: none;
     font-size: 1.5rem;
     text-transform: uppercase;
-    padding: 1rem 2rem;
-    border: 2px solid #1a1a1a;
+    padding: 1rem 3rem;
+    border: 2px solid var(--secondary-color);
+    /* Navy Border */
     border-radius: 50px;
     transition: all 0.3s ease;
     position: relative;
@@ -323,13 +858,14 @@ button[type="submit"]:hover {
     left: 0;
     width: 0%;
     height: 100%;
-    background-color: #1a1a1a;
+    background-color: var(--secondary-color);
     transition: width 0.3s ease;
     z-index: -1;
 }
 
 .email-link:hover {
     color: white;
+    /* White on Hover */
     transform: scale(1.05);
 }
 
@@ -439,59 +975,42 @@ button[type="submit"]:hover {
 }
 
 /* Client Hero Section */
-/* Client Hero Section */
 #client-hero {
     background-color: transparent;
-    /* Light Green Removed */
-    color: #1a1a1a;
+    color: var(--text-color);
     text-align: left;
     overflow: hidden;
-    /* For shapes */
     padding: 0;
-    /* Full width/height control if needed */
 }
 
 .client-content-container {
     display: flex;
     flex-direction: column-reverse;
-    /* Image on top on mobile usually, or text on top? Let's do text top mobile. */
     align-items: center;
     justify-content: center;
-    /* Centered content */
     width: 100%;
     margin: 0 auto;
-    margin: 0 auto;
-    background-color: rgba(255, 255, 255, 0.4);
-    /* Glassy instead of solid green */
+    background-color: #ffffff;
+    /* Pure White Card */
+    /* Removed glass, solid white is cleaner on cream */
     backdrop-filter: blur(10px);
-    /* overflow: hidden; Removed to allow image to flush */
+    border: 1px solid #e2e8f0;
     max-width: 1100px;
-    /* overflow: hidden; Removed to allow image to flush */
-    max-width: 1100px;
-    /* Constrain width to bring them closer */
-    /* Full width wrapper? Reference looks like a container but let's stick to safe container width or full width design. Reference image looks like a banner. */
-    /* Actually reference looks like a card inside a container or full screen split. 
-       Let's try to make it look like the reference: 50/50 split. 
-       If I use max-width 1200px and margin auto, it's a card. 
-       I will ensure the image fills the right side of this card completely.
-    */
     border-radius: 20px;
-    /* Reference implies some border radius maybe? Or straight? Real reference is straight edges usually for full sections. Let's add radius if it's a container. */
     overflow: hidden;
     gap: 0;
-    /* Let flex handle it, or small gap */
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.05);
+    /* Soft shadow */
 }
 
 .client-text {
     flex: 1;
     padding: 1.5rem;
-    /* Tighter padding for mobile */
     z-index: 2;
     display: flex;
     flex-direction: column;
     justify-content: center;
     max-width: 100%;
-    /* Allow full width on mobile */
 }
 
 .client-text h3 {
@@ -503,18 +1022,20 @@ button[type="submit"]:hover {
     display: flex;
     align-items: center;
     gap: 0.5rem;
+    color: var(--secondary-color);
 }
 
 .client-text h3::before {
     content: 'S';
-    /* Logo placeholder */
     display: inline-flex;
     justify-content: center;
     align-items: center;
     width: 24px;
     height: 24px;
-    background: black;
+    background: var(--secondary-color);
+    /* Navy Circle */
     color: white;
+    /* White text */
     border-radius: 50%;
     font-size: 0.8rem;
 }
@@ -525,56 +1046,52 @@ button[type="submit"]:hover {
     line-height: 1.1;
     margin-bottom: 1.5rem;
     font-weight: 400;
-    /* Playfair looks good slightly lighter at large sizes */
+    color: var(--secondary-color);
 }
 
 .client-text p {
     font-size: 1.1rem;
-    color: #333;
+    color: var(--text-muted);
     margin-bottom: 2rem;
     max-width: 500px;
 }
 
 .client-text p.client-bio {
     font-size: 1.35rem;
-    /* Slightly larger as requested "sajifye sundor" implies readability */
-    color: #1a1a1a;
+    color: var(--text-color);
+    /* Dark Slate for readability */
     line-height: 1.6;
     margin-bottom: 1.5rem;
     font-family: var(--font-heading);
-    /* Requested: "coming soon font" which is Playfair Display */
     font-weight: 500;
-    /* Medium weight for Playfair */
     max-width: 100%;
 }
 
 .client-text strong {
-    color: #008080;
+    color: var(--secondary-color);
     font-weight: 700;
 }
 
 .linkedin-btn {
     display: inline-block;
-    background: linear-gradient(45deg, #0077b5, #00a0dc);
+    background: #0077b5;
     color: white;
     margin-top: 1rem;
     text-decoration: none;
     font-family: var(--font-body);
-    /* Keep button readable sans-serif */
     font-weight: 700;
     padding: 1rem 2.5rem;
     border-radius: 50px;
     text-transform: uppercase;
     letter-spacing: 1px;
     align-self: flex-start;
-    /* Don't stretch */
-    box-shadow: 0 5px 15px rgba(0, 119, 181, 0.3);
+    box-shadow: 0 5px 15px rgba(0, 119, 181, 0.2);
     transition: all 0.3s ease;
 }
 
 .linkedin-btn:hover {
-    background: linear-gradient(45deg, #005e93, #0088bb);
-    box-shadow: 0 10px 25px rgba(0, 119, 181, 0.5);
+    background: #005e93;
+    box-shadow: 0 10px 25px rgba(0, 119, 181, 0.4);
     transform: translateY(-3px);
 }
 
@@ -587,7 +1104,6 @@ button[type="submit"]:hover {
     width: 100%;
     height: auto;
     min-height: 300px;
-    /* Smaller min-height for mobile */
     padding: 1rem;
 }
 
@@ -607,16 +1123,14 @@ button[type="submit"]:hover {
     object-fit: cover;
     max-width: 400px;
     border-radius: 20px;
-    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.15);
+    box-shadow: 0 20px 50px rgba(30, 58, 138, 0.1);
     object-position: center top;
     display: block;
 }
 
 .client-name-title h3 {
     font-family: var(--font-body);
-    /* Sans serif for modern look or font-heading? Reference looks clean sans-serif */
-    color: #008080;
-    /* Teal */
+    color: var(--secondary-color);
     font-size: 1.5rem;
     font-weight: 700;
     margin-bottom: 0.5rem;
@@ -626,8 +1140,7 @@ button[type="submit"]:hover {
 
 .client-name-title p {
     font-family: var(--font-body);
-    color: #008080;
-    /* Teal */
+    color: var(--text-muted);
     font-size: 1.2rem;
     font-weight: 400;
     margin: 0;
@@ -664,3 +1177,199 @@ button[type="submit"]:hover {
         object-fit: cover;
     }
 }
+
+/* Trusted By Section */
+#trusted-by {
+    min-height: auto;
+    /* It's a small strip */
+    padding: 3rem 0;
+    background: transparent;
+    /* Match theme / body gradient */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    overflow: hidden;
+}
+
+.trusted-kicker {
+    font-size: 0.9rem;
+    color: var(--text-muted);
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    margin-bottom: 2rem;
+    font-weight: 600;
+}
+
+.marquee-container {
+    width: 100%;
+    overflow: hidden;
+    position: relative;
+    mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
+    -webkit-mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
+}
+
+.marquee-track {
+    display: flex;
+    gap: 4rem;
+    width: max-content;
+    animation: scroll 30s linear infinite;
+}
+
+.logo-item {
+    display: flex;
+    align-items: center;
+    opacity: 0.7;
+    transition: opacity 0.3s;
+}
+
+.logo-item:hover {
+    opacity: 1;
+}
+
+.logo-item img {
+    height: 40px;
+    width: auto;
+    display: block;
+    /* Make logos Black/Navy for light theme */
+    filter: brightness(0);
+    /* Pure Black */
+    /* Optional: filter: brightness(0) sepia(100%) hue-rotate(190deg) saturate(500%) brightness(0.4); for Navy */
+    opacity: 0.6;
+    transition: opacity 0.3s;
+}
+
+.logo-item:hover img {
+    opacity: 1;
+}
+
+@keyframes scroll {
+    0% {
+        transform: translateX(0);
+    }
+
+    100% {
+        transform: translateX(calc(-50% - 2rem));
+        /* Move by half width (since duplicated) + half gap */
+        /* Actually simpler: just move by -50% if content is exactly doubled? 
+           Let's adjust depending on track length. 
+           If I duplicated the content, moving -50% of the TRACK width works if the track contains exactly 2 sets.
+        */
+        transform: translateX(-50%);
+    }
+}
+
+/* Premium Success Popup */
+.popup-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(15, 23, 42, 0.6);
+    /* Dark navy overlay */
+    backdrop-filter: blur(8px);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s ease;
+}
+
+.popup-overlay.active {
+    opacity: 1;
+    pointer-events: all;
+}
+
+.popup-card {
+    background: white;
+    padding: 3rem;
+    border-radius: 40px;
+    text-align: center;
+    max-width: 450px;
+    width: 90%;
+    box-shadow: 0 25px 50px rgba(0, 0, 0, 0.2);
+    transform: translateY(20px) scale(0.95);
+    transition: transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+    position: relative;
+    overflow: hidden;
+}
+
+.popup-overlay.active .popup-card {
+    transform: translateY(0) scale(1);
+}
+
+.popup-icon {
+    width: 80px;
+    height: 80px;
+    background: linear-gradient(135deg, #60A5FA, #2563EB);
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0 auto 1.5rem;
+    box-shadow: 0 10px 20px rgba(37, 99, 235, 0.3);
+}
+
+.popup-card h3 {
+    font-family: var(--font-body);
+    font-size: 2rem;
+    color: #1e293b;
+    margin-bottom: 1rem;
+    font-weight: 700;
+}
+
+.popup-message {
+    font-size: 1.1rem;
+    color: #64748b;
+    line-height: 1.6;
+    margin-bottom: 2rem;
+}
+
+.ceo-signature {
+    margin-bottom: 2rem;
+    padding-top: 1.5rem;
+    border-top: 1px solid #f1f5f9;
+}
+
+.warm-regards {
+    font-family: 'Playfair Display', serif;
+    /* Signature font */
+    font-style: italic;
+    font-size: 1.1rem;
+    color: #1e293b;
+    margin-bottom: 0.25rem;
+}
+
+.ceo-name {
+    font-weight: 700;
+    color: #1e293b;
+    font-size: 1.1rem;
+    margin-bottom: 0;
+}
+
+.ceo-title {
+    font-size: 0.85rem;
+    color: #94a3b8;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.close-popup-btn {
+    background: #f1f5f9;
+    color: #64748b;
+    border: none;
+    padding: 0.8rem 2rem;
+    border-radius: 50px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.close-popup-btn:hover {
+    background: #e2e8f0;
+    color: #1e293b;
+}
+
+```

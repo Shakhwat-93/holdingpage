@@ -8,7 +8,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
-        href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;700;900&family=Playfair+Display:ital,wght@0,400;0,600;0,700;0,900;1,400&display=swap"
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@300;400;700;900&family=Playfair+Display:ital,wght@0,400;0,600;0,700;0,900;1,400&display=swap"
         rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
 </head>
@@ -22,23 +22,33 @@
 
     <div id="confetti-container"></div>
 
+    <!-- Ambient Moving Background -->
+    <div class="ambient-background">
+        <div class="orb orb-1"></div>
+        <div class="orb orb-2"></div>
+        <div class="orb orb-3"></div>
+    </div>
+
     <!-- Section 1: Hero / Coming Soon Highlight -->
     <section id="hero" class="section">
         <div class="content">
-            <h2 class="hero-kicker">NEW SITE UNDER DEVELOPMENT</h2>
-            <h1 class="hero-title">COMING<br>SOON</h1>
-            <p class="hero-subtitle">ELITE FRACTIONAL AND FULL-TIME TALENT<br>360Partners connects high-growth
-                businesses with exceptional fractional <br> and full-time professionals across operations, finance,
-                technology, and strategy.</p>
-            <button class="cta-button">Notify Me!</button>
+            <h1 class="hero-title reveal">New Site <br> Under Development</h1>
+            <h2 class="hero-sub-headline reveal delay-100">Elite Fractional & Full-Time Talent</h2>
+            <p class="hero-subtitle reveal delay-200">360Partners connects high-growth businesses with exceptional
+                fractional and
+                full-time professionals across operations, finance, technology, and strategy.</p>
+            <button class="cta-button reveal delay-300"
+                onclick="document.getElementById('contact').scrollIntoView({behavior: 'smooth'});">Notify Me!</button>
         </div>
         <!-- Decorative elements will be added via CSS/JS -->
     </section>
 
+
+
     <!-- Section 1.5: Client Hero -->
-    <section id="client-hero" class="section">
+    <section id="client-hero" class="section reveal">
         <div class="client-content-container">
-            <div class="client-text">
+            <div class="client-text reveal delay-100">
                 <p class="client-bio">
                     After a decade supporting senior leadership at Goldman Sachs and helping scale 20VC from launch to a
                     $500M fund, Abbie saw the same pattern everywhere: when the right operators are embedded,
@@ -51,7 +61,7 @@
                 <a href="https://www.linkedin.com" target="_blank" class="cta-button linkedin-btn">Connect on
                     LinkedIn</a>
             </div>
-            <div class="client-image">
+            <div class="client-image reveal delay-200">
                 <div class="client-details-card">
                     <img src="client_real.jpg" alt="Client Image">
                     <div class="client-name-title">
@@ -63,16 +73,139 @@
         </div>
     </section>
 
+    <!-- Trusted By / Logo Marquee -->
+    <section id="trusted-by" class="section reveal">
+        <p class="trusted-kicker">TRUSTED BY EXECUTIVES FROM</p>
+        <div class="marquee-container">
+            <div class="marquee-track">
+                <!-- Logos (Duplicated for seamless loop) -->
+                <!-- Set 1 -->
+                <div class="logo-item"><img
+                        src="https://upload.wikimedia.org/wikipedia/commons/2/23/Goldman_Sachs_2020.svg"
+                        alt="Goldman Sachs"></div>
+                <div class="logo-item"><img
+                        src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/e0/20VC_Logo.png/1200px-20VC_Logo.png"
+                        alt="20VC"></div>
+                <div class="logo-item"><img
+                        src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/77/JPMorgan_Chase_Logo_2008.svg/1024px-JPMorgan_Chase_Logo_2008.svg.png"
+                        alt="J.P.Morgan"></div>
+                <div class="logo-item"><img
+                        src="https://upload.wikimedia.org/wikipedia/commons/2/2f/Google_2015_logo.svg" alt="Google">
+                </div>
+                <div class="logo-item"><img src="https://upload.wikimedia.org/wikipedia/commons/a/a9/Amazon_logo.svg"
+                        alt="Amazon"></div>
 
+                <!-- Repeat placeholders/simulated logos for specific esoteric companies -->
+                <div class="logo-item"><img src="https://placehold.co/100x40/transparent/white?text=tokinvest"
+                        alt="tokinvest"></div>
+                <div class="logo-item"><img src="https://placehold.co/100x40/transparent/white?text=Quetzel"
+                        alt="Quetzel"></div>
+                <div class="logo-item"><img src="https://placehold.co/120x40/transparent/white?text=Sturgeon"
+                        alt="Sturgeon Capital"></div>
 
-    <!-- Section 3: Contact / Subscribe -->
-    <section id="contact" class="section">
-        <div class="content">
-            <h2>Get In Touch</h2>
-            <p>For inquiries and opportunities.</p>
-            <a href="mailto:abbie@36va.co" class="email-link">EMAIL US</a>
+                <!-- Set 2 (Duplicate) -->
+                <div class="logo-item"><img
+                        src="https://upload.wikimedia.org/wikipedia/commons/2/23/Goldman_Sachs_2020.svg"
+                        alt="Goldman Sachs"></div>
+                <div class="logo-item"><img
+                        src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/e0/20VC_Logo.png/1200px-20VC_Logo.png"
+                        alt="20VC"></div>
+                <div class="logo-item"><img
+                        src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/77/JPMorgan_Chase_Logo_2008.svg/1024px-JPMorgan_Chase_Logo_2008.svg.png"
+                        alt="J.P.Morgan"></div>
+                <div class="logo-item"><img
+                        src="https://upload.wikimedia.org/wikipedia/commons/2/2f/Google_2015_logo.svg" alt="Google">
+                </div>
+                <div class="logo-item"><img src="https://upload.wikimedia.org/wikipedia/commons/a/a9/Amazon_logo.svg"
+                        alt="Amazon"></div>
+
+                <div class="logo-item"><img src="https://placehold.co/100x40/transparent/white?text=tokinvest"
+                        alt="tokinvest"></div>
+                <div class="logo-item"><img src="https://placehold.co/100x40/transparent/white?text=Quetzel"
+                        alt="Quetzel"></div>
+                <div class="logo-item"><img src="https://placehold.co/120x40/transparent/white?text=Sturgeon"
+                        alt="Sturgeon Capital"></div>
+            </div>
         </div>
     </section>
+
+
+
+    <!-- Contact / Get in Touch Section (Redesigned) -->
+    <section id="contact" class="section">
+        <div class="contact-wrapper">
+            <!-- Centered Section Headline -->
+            <div class="contact-section-header reveal">
+                <h2>Get in Touch</h2>
+                <p>We'd love to hear from you. Reach out to us today.</p>
+            </div>
+
+            <!-- Single Main Form Card (Centered) -->
+            <div class="contact-card-main contact-card-centered reveal delay-100">
+                <form class="clean-form">
+                    <div class="form-row-2">
+                        <div class="form-group">
+                            <label for="name">Name</label>
+                            <input type="text" id="name" placeholder="John Doe">
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Email</label>
+                            <input type="email" id="email" placeholder="john@example.com">
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="message">Message</label>
+                        <textarea id="message" rows="4" placeholder="How can we help you?"></textarea>
+                    </div>
+
+                    <button type="submit" class="submit-btn-clean full-width-btn">
+                        Send Message
+                    </button>
+                </form>
+            </div>
+
+            <!-- New: Contact Stats/Pills Row (Centered at Bottom) -->
+            <div class="contact-methods-row reveal delay-200">
+                <!-- Email Card -->
+                <div class="contact-method-card">
+                    <div class="icon-box">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M4 7.00005L10.2 11.65C11.2667 12.45 12.7333 12.45 13.8 11.65L20 7" stroke="#2563EB"
+                                stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                            <rect x="3" y="5" width="18" height="14" rx="2" stroke="#2563EB" stroke-width="2"
+                                stroke-linecap="round" />
+                        </svg>
+                    </div>
+                    <div class="item-text">
+                        <span class="label">Email Us</span>
+                        <a href="mailto:abbie@36va.co" class="value">abbie@36va.co</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Premium Success Popup -->
+    <div id="success-popup" class="popup-overlay">
+        <div class="popup-card">
+            <div class="popup-icon">
+                <svg width="40" height="40" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M20 6L9 17L4 12" stroke="white" stroke-width="3" stroke-linecap="round"
+                        stroke-linejoin="round" />
+                </svg>
+            </div>
+            <h3>Thank You!</h3>
+            <p class="popup-message">Thank you for connecting with us. We have received your message and will reach out
+                shortly to discuss how we can help you scale.</p>
+            <div class="ceo-signature">
+                <p class="warm-regards">Warm regards,</p>
+                <p class="ceo-name">Abbie Bowtell</p>
+                <p class="ceo-title">Founder & CEO, 360Partners</p>
+            </div>
+            <button class="close-popup-btn" onclick="closePopup()">Close</button>
+        </div>
+    </div>
 
     <script src="script.js"></script>
 </body>

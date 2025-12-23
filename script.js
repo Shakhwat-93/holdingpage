@@ -46,4 +46,31 @@ document.addEventListener('DOMContentLoaded', () => {
     for (let i = 0; i < 60; i++) {
         // createConfetti(); // Confetti disabled per user request
     }
+    // Premium Popup Logic
+    const popup = document.getElementById('success-popup');
+    const contactForm = document.querySelector('.clean-form');
+    const closeBtn = document.querySelector('.close-popup-btn');
+
+    // Make closePopup available globally if needed, or stick to event listeners
+    window.closePopup = function () {
+        if (popup) popup.classList.remove('active');
+    }
+
+    if (contactForm) {
+        contactForm.addEventListener('submit', function (e) {
+            e.preventDefault(); // Stop actual submission
+
+            // Show Popup
+            if (popup) popup.classList.add('active');
+        });
+    }
+
+    // Close on outside click
+    if (popup) {
+        popup.addEventListener('click', function (e) {
+            if (e.target === popup) {
+                closePopup();
+            }
+        });
+    }
 });
