@@ -108,84 +108,99 @@
         <div class="logo-container animate-[reveal_1s_ease-out_forwards]">
             <!-- Updated: MAXIMUM Size as requested (h-32 on desktop) + Shadow for "sundor" look -->
             <img src="NEW.png" alt="360 Partners"
-                class="h-36 md:h-32 w-auto opacity-100 drop-shadow-sm hover:scale-105 transition-transform duration-300">
+                class="h-40 md:h-36 w-auto opacity-100 drop-shadow-sm hover:scale-105 transition-transform duration-300">
         </div>
     </header>
 
     <!-- Confetti Container -->
     <div id="confetti-container" class="fixed inset-0 pointer-events-none z-50"></div>
 
-    <!-- Hero Section -->
-    <section id="hero" class="relative z-10 min-h-screen flex items-center justify-center p-4 md:p-12">
-        <div
-            class="w-full max-w-7xl glass-card rounded-[2rem] md:rounded-[3rem] px-6 pb-12 pt-28 md:p-24 flex flex-col items-center text-center relative overflow-hidden">
+    <!-- Hero Section (Torre Style: White BG, No Card) -->
+    <section id="hero" class="relative z-10 min-h-screen flex items-center justify-center p-4 md:p-12 bg-white">
+        <!-- Logo Container (Moved inside relative flow or keeping resizing logic) -->
+        <!-- Actually, user asked for logo at top. Header handles that. This section handles hero content. -->
+        <div class="w-full max-w-7xl px-6 md:p-24 flex flex-col items-center text-center relative pt-44 md:pt-32">
 
             <!-- Hero Content -->
-            <div class="relative z-10 max-w-4xl mx-auto flex flex-col items-center hero-content">
-                <h1 class="text-4xl md:text-7xl font-extrabold tracking-tight mb-6 hero-title">
-                    <span
-                        class="bg-clip-text text-transparent bg-gradient-to-r from-slate-900 via-blue-800 to-blue-600">
-                        New Site <br> Under Development
-                    </span>
-                </h1>
-
-                <h2 class="text-2xl md:text-3xl font-bold text-slate-700 mb-8 hero-subtitle">
-                    Elite Fractional & Full-Time Talent
-                </h2>
-
-                <p class="text-lg md:text-xl text-slate-500 max-w-2xl leading-relaxed mb-10 hero-text">
-                    360Partners connects high-growth businesses with exceptional fractional and full-time professionals
-                    across operations, finance, technology, and strategy.
+            <div class="relative z-10 max-w-5xl mx-auto flex flex-col items-center hero-content">
+                <!-- Tiny Tagline -->
+                <p
+                    class="text-xs md:text-sm font-bold tracking-[0.2em] text-slate-400 uppercase mb-8 animate-[reveal_1s_ease-out_forwards]">
+                    New Site In Development
                 </p>
 
+                <!-- Main Headline -->
+                <h1
+                    class="text-5xl md:text-8xl font-extrabold tracking-tight mb-8 leading-tight text-[#0E1B2D] uppercase animate-[reveal_1s_ease-out_0.2s_forwards]">
+                    Elite Fractional And<br class="hidden md:block"> Full-Time Talent
+                </h1>
+
+                <!-- Subtext -->
+                <h2
+                    class="text-xl md:text-2xl font-medium text-[#0E1B2D] opacity-80 max-w-3xl leading-relaxed mb-12 animate-[reveal_1s_ease-out_0.4s_forwards]">
+                    360Partners connects high-growth businesses with exceptional fractional and full-time professionals
+                    across operations, finance, technology, and strategy.
+                </h2>
+
                 <button onclick="document.getElementById('contact').scrollIntoView({behavior: 'smooth'});"
-                    class="hero-btn group relative inline-flex items-center justify-center px-8 py-4 text-base font-bold text-white transition-all duration-200 bg-blue-600 rounded-full hover:bg-blue-700 hover:shadow-lg hover:shadow-blue-600/30 hover:-translate-y-1 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-600">
+                    class="hero-btn group relative inline-flex items-center justify-center px-10 py-5 text-sm font-bold text-white uppercase tracking-widest transition-all duration-200 bg-[#E31C5F] hover:bg-[#c41550] hover:shadow-lg hover:-translate-y-1 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-[#E31C5F] animate-[reveal_1s_ease-out_0.6s_forwards]">
                     Contact Us
-                    <svg class="w-5 h-5 ml-2 -mr-1 transition-transform group-hover:translate-x-1" fill="none"
-                        stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                            d="M13 7l5 5m0 0l-5 5m5-5H6"></path>
-                    </svg>
                 </button>
             </div>
         </div>
     </section>
 
     <!-- Client / Founders Section -->
-    <section id="client-hero" class="relative z-10 py-24 px-6 md:px-12 max-w-7xl mx-auto">
-        <div class="flex flex-col md:flex-row gap-12 items-center">
+    <!-- About / Client Section (Torre Style: Navy BG) -->
+    <section id="client-hero" class="relative z-10 py-24 px-6 md:px-12 bg-[#0E1B2D] text-white overflow-hidden">
+        <!-- Background Elements (Subtle Glows) -->
+        <div
+            class="absolute top-0 right-0 w-[50vw] h-[50vw] bg-teal-500/10 rounded-full blur-[100px] pointer-events-none">
+        </div>
+
+        <div class="max-w-7xl mx-auto flex flex-col md:flex-row gap-16 items-center relative z-10">
             <!-- Text Side -->
-            <div class="flex-1 space-y-8 text-center md:text-left">
-                <p class="text-xl md:text-2xl text-slate-600 leading-relaxed font-light">
-                    After a decade supporting senior leadership at Goldman Sachs and helping scale 20VC from launch to a
-                    $500M fund, Abbie saw the same pattern everywhere: when the right operators are embedded,
+            <div class="flex-1 space-y-10 text-center md:text-left">
+                <!-- Heading -->
+                <h2 class="text-4xl md:text-6xl font-extrabold uppercase tracking-tight leading-tight">
+                    Putting Expertise<br> At The Centre
+                </h2>
+
+                <div class="h-px w-24 bg-white/20 mx-auto md:mx-0"></div>
+
+                <p class="text-xl md:text-2xl text-slate-300 leading-relaxed font-light">
+                    After a decade supporting senior leadership at <span class="text-white font-semibold">Goldman
+                        Sachs</span> and helping scale <span class="text-white font-semibold">20VC</span> from launch to
+                    a $500M fund, Abbie saw the same pattern everywhere: when the right operators are embedded,
                     performance compounds.
                 </p>
-                <div class="h-px w-24 bg-slate-200 mx-auto md:mx-0"></div>
-                <p class="text-xl md:text-2xl text-slate-800 font-medium leading-relaxed">
-                    She created <strong class="text-blue-600">360Partners</strong> to give Executives flexible access to
+
+                <p class="text-xl md:text-2xl text-slate-300 font-medium leading-relaxed">
+                    She created <strong class="text-white">360Partners</strong> to give Executives flexible access to
                     Strategic EAs, Operations Leaders, and CFOs who deliver from day one.
                 </p>
 
-                <a href="https://www.linkedin.com/in/abbie-bowtell" target="_blank"
-                    class="inline-block mt-8 px-8 py-3 bg-[#0077b5] text-white font-bold rounded-full shadow-lg shadow-blue-900/10 hover:shadow-blue-900/20 hover:-translate-y-1 transition-all">
-                    Connect on LinkedIn
-                </a>
+                <div class="pt-4">
+                    <a href="https://www.linkedin.com/in/abbie-bowtell" target="_blank"
+                        class="inline-block px-8 py-3 border border-white/30 text-white font-bold tracking-widest uppercase hover:bg-white hover:text-[#0E1B2D] transition-all duration-300">
+                        Connect on LinkedIn
+                    </a>
+                </div>
             </div>
 
-            <!-- Image Side -->
-            <div class="flex-1 w-full max-w-md relative group">
+            <!-- Image Side (Cut-out) -->
+            <div class="flex-1 w-full max-w-md relative flex justify-center md:justify-end">
+                <!-- Circular/Geometric Backing (Torre Style) -->
                 <div
-                    class="absolute inset-0 bg-blue-600 rounded-[2rem] rotate-6 opacity-10 group-hover:rotate-3 transition-transform duration-500">
+                    class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[120%] h-[120%] border border-white/10 rounded-full animate-[spin-slow_60s_linear_infinite]">
                 </div>
-                <div class="relative bg-white p-4 rounded-[2rem] shadow-xl">
-                    <img src="client_real.jpg" alt="Abbie Bowtell"
-                        class="w-full h-auto rounded-[1.5rem] object-cover aspect-[4/5]">
-                    <div class="text-center pt-6 pb-2">
-                        <h3 class="text-xl font-bold text-slate-900 tracking-wide uppercase">Abbie Bowtell</h3>
-                        <p class="text-slate-500 text-sm font-medium tracking-widest uppercase mt-1">Founder & CEO</p>
-                    </div>
+                <div
+                    class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[90%] h-[90%] border border-white/5 rounded-full">
                 </div>
+
+                <!-- Transparent Image (Navy BG Match) -->
+                <img src="client_navy.png" alt="Abbie Bowtell"
+                    class="relative z-10 w-full md:w-[90%] h-auto object-contain">
             </div>
         </div>
     </section>
@@ -200,7 +215,7 @@
                 class="flex gap-16 md:gap-24 animate-[scroll_30s_linear_infinite] w-max items-center opacity-60 grayscale hover:grayscale-0 transition-all duration-500">
                 <!-- Logos (Set 1) -->
                 <img src="https://placehold.co/180x50/transparent/1e293b?text=Goldman+Sachs&font=serif"
-                    alt="Goldman Sachs" class="h-8 md:h-10 w-auto object-contain">
+                    alt="Goldman Sachs" class="h-12 md:h-16 w-auto object-contain">
                 <img src="https://placehold.co/100x50/transparent/1e293b?text=20VC&font=montserrat" alt="20VC"
                     class="h-8 md:h-10 w-auto object-contain">
                 <img src="https://placehold.co/180x50/transparent/1e293b?text=J.P.+Morgan&font=serif" alt="JP Morgan"
@@ -214,11 +229,11 @@
                 <img src="https://placehold.co/120x50/transparent/1e293b?text=Quetzel&font=playfair" alt="Quetzel"
                     class="h-8 md:h-10 w-auto object-contain">
                 <img src="https://placehold.co/140x50/transparent/1e293b?text=Sturgeon&font=oswald" alt="Sturgeon"
-                    class="h-8 md:h-10 w-auto object-contain">
+                    class="h-5 md:h-7 w-auto object-contain">
 
                 <!-- Logos (Set 2 Duplicate) -->
                 <img src="https://placehold.co/180x50/transparent/1e293b?text=Goldman+Sachs&font=serif"
-                    alt="Goldman Sachs" class="h-8 md:h-10 w-auto object-contain">
+                    alt="Goldman Sachs" class="h-12 md:h-16 w-auto object-contain">
                 <img src="https://placehold.co/100x50/transparent/1e293b?text=20VC&font=montserrat" alt="20VC"
                     class="h-8 md:h-10 w-auto object-contain">
                 <img src="https://placehold.co/180x50/transparent/1e293b?text=J.P.+Morgan&font=serif" alt="JP Morgan"
@@ -232,7 +247,7 @@
                 <img src="https://placehold.co/120x50/transparent/1e293b?text=Quetzel&font=playfair" alt="Quetzel"
                     class="h-8 md:h-10 w-auto object-contain">
                 <img src="https://placehold.co/140x50/transparent/1e293b?text=Sturgeon&font=oswald" alt="Sturgeon"
-                    class="h-8 md:h-10 w-auto object-contain">
+                    class="h-5 md:h-7 w-auto object-contain">
             </div>
         </div>
 
@@ -302,32 +317,35 @@
                     </button>
                 </form>
             </div>
-
-            <!-- Email Pill -->
-            <div class="flex justify-center">
-                <div class="animate-float">
-                    <div
-                        class="bg-white border border-white/80 rounded-full py-4 px-10 shadow-lg shadow-blue-900/5 hover:shadow-xl hover:shadow-blue-900/10 hover:-translate-y-1 transition-all duration-500 cursor-default flex items-center gap-5 group">
-                        <div
-                            class="w-12 h-12 bg-blue-50 rounded-2xl flex items-center justify-center text-blue-600 group-hover:bg-blue-600 group-hover:text-white group-hover:rotate-6 group-hover:scale-110 transition-all duration-500">
-                            <svg class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                    d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
-                            </svg>
-                        </div>
-                        <div class="flex flex-col">
-                            <span
-                                class="text-xs font-bold text-slate-400 uppercase tracking-wider group-hover:text-blue-600 transition-colors">Email
-                                Us</span>
-                            <a href="mailto:abbie@36va.co"
-                                class="text-lg font-bold text-slate-800 hover:text-blue-600 transition-colors">abbie@36va.co</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
         </div>
     </section>
+
+    <!-- Footer (Torre Style: Minimalist) -->
+    <footer class="bg-white border-t border-slate-100 py-16 px-6 md:px-12 relative z-10 text-[#0E1B2D]">
+        <div class="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-start md:items-end gap-12">
+
+            <!-- Left Side: Logo & Description -->
+            <div class="max-w-md space-y-6">
+                <!-- Logo -->
+                <img src="NEW.png" alt="360 Partners" class="h-32 w-auto">
+                <p class="text-sm md:text-base font-medium leading-relaxed opacity-80">
+                    360Partners connects high-growth businesses with exceptional fractional and full-time professionals
+                    across operations, finance, technology, and strategy.
+                </p>
+                <p class="text-xs font-bold text-slate-400 uppercase tracking-widest pt-4">
+                    &copy; 2023 360Partners
+                </p>
+            </div>
+
+            <!-- Right Side: Email -->
+            <div class="text-right">
+                <a href="mailto:abbie@36va.co"
+                    class="text-lg md:text-xl font-bold hover:text-[#E31C5F] transition-colors duration-300">
+                    abbie@36va.co
+                </a>
+            </div>
+        </div>
+    </footer>
 
     <!-- Success Popup -->
     <div id="success-popup"
