@@ -77,7 +77,7 @@
     </style>
 </head>
 
-<body class="bg-[#f8faff] text-slate-900 overflow-x-hidden antialiased selection:bg-pink-100 selection:text-pink-900">
+<body class="bg-[#f8faff] text-slate-900 overflow-x-hidden antialiased selection:bg-blue-100 selection:text-blue-900">
 
     <!-- Ambient Background -->
     <div class="fixed inset-0 pointer-events-none z-0 overflow-hidden">
@@ -103,14 +103,12 @@
     </div>
 
     <!-- Header -->
-    <header class="absolute top-0 left-0 w-full p-4 md:p-8 z-50 flex justify-start">
-        <div class="logo-container">
-            <!-- Used original filter logic via tailwind arbitrary values or inline style if needed, 
-                 but for this logo on light bg, simple mix-blend might assume white logo. 
-                 Let's stick to the CSS logic: grayscale invert etc. 
-            -->
-            <img src="logo_original.jpg" alt="360 Partners Logo"
-                class="h-12 md:h-16 w-auto transition-all duration-300 [filter:grayscale(100%)_contrast(100%)_invert(100%)] mix-blend-screen">
+    <header
+        class="absolute top-0 left-0 w-full pt-6 md:pt-10 px-8 md:px-16 z-[100] flex justify-center md:justify-start">
+        <div class="logo-container animate-[reveal_1s_ease-out_forwards]">
+            <!-- Updated: MAXIMUM Size as requested (h-32 on desktop) + Shadow for "sundor" look -->
+            <img src="NEW.png" alt="360 Partners"
+                class="h-20 md:h-32 w-auto opacity-100 drop-shadow-sm hover:scale-105 transition-transform duration-300">
         </div>
     </header>
 
@@ -142,7 +140,7 @@
 
                 <button onclick="document.getElementById('contact').scrollIntoView({behavior: 'smooth'});"
                     class="hero-btn group relative inline-flex items-center justify-center px-8 py-4 text-base font-bold text-white transition-all duration-200 bg-blue-600 rounded-full hover:bg-blue-700 hover:shadow-lg hover:shadow-blue-600/30 hover:-translate-y-1 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-600">
-                    Notify Me!
+                    Contact Us
                     <svg class="w-5 h-5 ml-2 -mr-1 transition-transform group-hover:translate-x-1" fill="none"
                         stroke="currentColor" viewBox="0 0 24 24">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
@@ -199,40 +197,42 @@
 
         <div class="relative w-full max-w-7xl mx-auto mask-gradient">
             <div
-                class="flex gap-16 md:gap-24 animate-[scroll_30s_linear_infinite] w-max items-center opacity-70 grayscale hover:grayscale-0 transition-all duration-500">
+                class="flex gap-16 md:gap-24 animate-[scroll_30s_linear_infinite] w-max items-center opacity-60 grayscale hover:grayscale-0 transition-all duration-500">
                 <!-- Logos (Set 1) -->
-                <img src="https://upload.wikimedia.org/wikipedia/commons/2/23/Goldman_Sachs_2020.svg"
-                    alt="Goldman Sachs" class="h-8 w-auto">
-                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/e0/20VC_Logo.png/1200px-20VC_Logo.png"
-                    alt="20VC" class="h-8 w-auto">
-                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/77/JPMorgan_Chase_Logo_2008.svg/1024px-JPMorgan_Chase_Logo_2008.svg.png"
-                    alt="JP Morgan" class="h-8 w-auto">
-                <img src="https://upload.wikimedia.org/wikipedia/commons/2/2f/Google_2015_logo.svg" alt="Google"
-                    class="h-8 w-auto">
-                <img src="https://upload.wikimedia.org/wikipedia/commons/a/a9/Amazon_logo.svg" alt="Amazon"
-                    class="h-8 w-auto">
-                <img src="https://placehold.co/100x40/transparent/black?text=tokinvest" alt="tokinvest"
-                    class="h-8 w-auto">
-                <img src="https://placehold.co/100x40/transparent/black?text=Quetzel" alt="Quetzel" class="h-8 w-auto">
-                <img src="https://placehold.co/120x40/transparent/black?text=Sturgeon" alt="Sturgeon"
-                    class="h-8 w-auto">
+                <img src="https://placehold.co/180x50/transparent/1e293b?text=Goldman+Sachs&font=serif"
+                    alt="Goldman Sachs" class="h-8 md:h-10 w-auto object-contain">
+                <img src="https://placehold.co/100x50/transparent/1e293b?text=20VC&font=montserrat" alt="20VC"
+                    class="h-8 md:h-10 w-auto object-contain">
+                <img src="https://placehold.co/180x50/transparent/1e293b?text=J.P.+Morgan&font=serif" alt="JP Morgan"
+                    class="h-8 md:h-10 w-auto object-contain">
+                <img src="https://placehold.co/120x50/transparent/1e293b?text=Google&font=roboto" alt="Google"
+                    class="h-8 md:h-10 w-auto object-contain">
+                <img src="https://placehold.co/120x50/transparent/1e293b?text=Amazon&font=lato" alt="Amazon"
+                    class="h-8 md:h-10 w-auto object-contain">
+                <img src="https://placehold.co/140x50/transparent/1e293b?text=Tokinvest&font=montserrat" alt="tokinvest"
+                    class="h-8 md:h-10 w-auto object-contain">
+                <img src="https://placehold.co/120x50/transparent/1e293b?text=Quetzel&font=playfair" alt="Quetzel"
+                    class="h-8 md:h-10 w-auto object-contain">
+                <img src="https://placehold.co/140x50/transparent/1e293b?text=Sturgeon&font=oswald" alt="Sturgeon"
+                    class="h-8 md:h-10 w-auto object-contain">
 
                 <!-- Logos (Set 2 Duplicate) -->
-                <img src="https://upload.wikimedia.org/wikipedia/commons/2/23/Goldman_Sachs_2020.svg"
-                    alt="Goldman Sachs" class="h-8 w-auto">
-                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/e0/20VC_Logo.png/1200px-20VC_Logo.png"
-                    alt="20VC" class="h-8 w-auto">
-                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/77/JPMorgan_Chase_Logo_2008.svg/1024px-JPMorgan_Chase_Logo_2008.svg.png"
-                    alt="JP Morgan" class="h-8 w-auto">
-                <img src="https://upload.wikimedia.org/wikipedia/commons/2/2f/Google_2015_logo.svg" alt="Google"
-                    class="h-8 w-auto">
-                <img src="https://upload.wikimedia.org/wikipedia/commons/a/a9/Amazon_logo.svg" alt="Amazon"
-                    class="h-8 w-auto">
-                <img src="https://placehold.co/100x40/transparent/black?text=tokinvest" alt="tokinvest"
-                    class="h-8 w-auto">
-                <img src="https://placehold.co/100x40/transparent/black?text=Quetzel" alt="Quetzel" class="h-8 w-auto">
-                <img src="https://placehold.co/120x40/transparent/black?text=Sturgeon" alt="Sturgeon"
-                    class="h-8 w-auto">
+                <img src="https://placehold.co/180x50/transparent/1e293b?text=Goldman+Sachs&font=serif"
+                    alt="Goldman Sachs" class="h-8 md:h-10 w-auto object-contain">
+                <img src="https://placehold.co/100x50/transparent/1e293b?text=20VC&font=montserrat" alt="20VC"
+                    class="h-8 md:h-10 w-auto object-contain">
+                <img src="https://placehold.co/180x50/transparent/1e293b?text=J.P.+Morgan&font=serif" alt="JP Morgan"
+                    class="h-8 md:h-10 w-auto object-contain">
+                <img src="https://placehold.co/120x50/transparent/1e293b?text=Google&font=roboto" alt="Google"
+                    class="h-8 md:h-10 w-auto object-contain">
+                <img src="https://placehold.co/120x50/transparent/1e293b?text=Amazon&font=lato" alt="Amazon"
+                    class="h-8 md:h-10 w-auto object-contain">
+                <img src="https://placehold.co/140x50/transparent/1e293b?text=Tokinvest&font=montserrat" alt="tokinvest"
+                    class="h-8 md:h-10 w-auto object-contain">
+                <img src="https://placehold.co/120x50/transparent/1e293b?text=Quetzel&font=playfair" alt="Quetzel"
+                    class="h-8 md:h-10 w-auto object-contain">
+                <img src="https://placehold.co/140x50/transparent/1e293b?text=Sturgeon&font=oswald" alt="Sturgeon"
+                    class="h-8 md:h-10 w-auto object-contain">
             </div>
         </div>
 
@@ -261,7 +261,7 @@
 
             <!-- Headline -->
             <div class="text-center mb-12">
-                <h2 class="text-4xl md:text-5xl font-bold text-slate-900 mb-4">Get in Touch</h2>
+                <h2 class="text-4xl md:text-5xl font-bold text-slate-900 mb-4">Get in Touch with us Today </h2>
                 <p class="text-lg text-slate-500">We'd love to hear from you. Reach out to us today.</p>
             </div>
 
