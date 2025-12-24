@@ -108,7 +108,7 @@
         <div class="logo-container animate-[reveal_1s_ease-out_forwards]">
             <!-- Updated: MAXIMUM Size as requested (h-32 on desktop) + Shadow for "sundor" look -->
             <img src="NEW.png" alt="360 Partners"
-                class="h-40 md:h-36 w-auto opacity-100 drop-shadow-sm hover:scale-105 transition-transform duration-300">
+                class="h-24 md:h-36 w-auto opacity-100 drop-shadow-sm hover:scale-105 transition-transform duration-300">
         </div>
     </header>
 
@@ -152,21 +152,68 @@
 
     <!-- Client / Founders Section -->
     <!-- About / Client Section (Torre Style: Navy BG) -->
-    <section id="client-hero" class="relative z-10 pt-24 pb-0 px-6 md:px-12 bg-[#0E1B2D] text-white overflow-hidden">
+    <section id="client-hero"
+        class="relative z-10 pt-16 md:pt-20 pb-0 px-6 md:px-12 bg-[#0E1B2D] text-white overflow-hidden">
         <!-- Background Elements (Subtle Glows) -->
         <div
             class="absolute top-0 right-0 w-[50vw] h-[50vw] bg-teal-500/10 rounded-full blur-[100px] pointer-events-none">
         </div>
 
-        <div class="max-w-7xl mx-auto flex flex-col md:flex-row gap-16 items-end relative z-10">
-            <!-- Text Side -->
-            <div class="flex-1 space-y-10 text-center md:text-left pb-24">
-                <!-- Heading -->
-                <h2 class="text-4xl md:text-6xl font-extrabold uppercase tracking-tight leading-tight">
-                    Putting Expertise<br> At The Centre
-                </h2>
+        <div
+            class="max-w-7xl mx-auto flex flex-col md:flex-row gap-8 md:gap-16 items-center md:items-end relative z-10">
+            <!-- Left Side: Headline + Profile Block -->
+            <div class="flex-1 w-full relative pt-8 md:pt-0 pl-0 md:pl-16">
+                <!-- Vertical Line Decoration (Full Height of Left Section) -->
+                <div class="absolute left-0 top-0 bottom-0 w-[1px] bg-white hidden md:block h-[120%] -translate-y-12">
+                </div>
 
-                <div class="h-px w-24 bg-white/20 mx-auto md:mx-0"></div>
+                <!-- Headline -->
+                <div class="mb-5 md:mb-10 relative text-center md:text-left">
+                    <h2
+                        class="text-xl sm:text-2xl md:text-4xl lg:text-5xl text-white uppercase tracking-wider leading-[1.2] md:leading-[1.1] font-display font-light">
+                        Getting <span class="font-bold">Expertise</span> At<br class="hidden md:block">
+                        The Centre
+                    </h2>
+                </div>
+
+                <!-- Profile Block: Image + Info -->
+                <div class="relative flex flex-row items-end justify-center md:justify-start gap-4 md:gap-8">
+                    <!-- Circular Line Decoration (Reference Match) -->
+                    <div
+                        class="absolute bottom-[-20%] left-[5%] w-[120%] h-[150%] border-t-[0.5px] border-r-[0.5px] border-white/20 rounded-[100%] rotate-[-45deg] -z-10 pointer-events-none">
+                    </div>
+
+                    <!-- Image -->
+                    <div class="relative w-[180px] md:w-[320px] flex-shrink-0">
+                        <img src="Untitled design.png" alt="Abbie Bowtell"
+                            class="w-full h-auto object-contain drop-shadow-2xl">
+                    </div>
+
+                    <!-- Info: Name, Title, LinkedIn (Stack to the right) -->
+                    <div class="pb-6 md:pb-10 flex flex-col justify-end items-start space-y-2">
+                        <h3 class="text-white font-bold uppercase text-lg md:text-xl tracking-wider leading-none">
+                            Abbie Bowtell
+                        </h3>
+                        <p class="text-slate-300 text-xs md:text-sm font-normal tracking-wide leading-tight">
+                            Founding Partner of 360Partners
+                        </p>
+                        <!-- LinkedIn Icon -->
+                        <div class="pt-1">
+                            <a href="https://www.linkedin.com/in/abbie-bowtell" target="_blank"
+                                class="inline-block bg-white rounded-[2px] p-[2px] transition-transform hover:scale-110">
+                                <svg class="w-5 h-5 text-[#0E1B2D]" fill="currentColor" viewBox="0 0 24 24">
+                                    <path
+                                        d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z" />
+                                </svg>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Right Side: Text Only -->
+            <div class="flex-1 space-y-10 text-center md:text-left pb-12 md:pb-24 max-w-xl">
+                <div class="h-px w-24 bg-white/20 mx-auto md:mx-0 mb-8 block md:hidden"></div>
 
                 <p class="text-xl md:text-2xl text-slate-300 leading-relaxed font-light">
                     After a decade supporting senior leadership at <span class="text-white font-semibold">Goldman
@@ -179,28 +226,6 @@
                     She created <strong class="text-white">360Partners</strong> to give Executives flexible access to
                     Strategic EAs, Operations Leaders, and CFOs who deliver from day one.
                 </p>
-
-                <div class="pt-4">
-                    <a href="https://www.linkedin.com/in/abbie-bowtell" target="_blank"
-                        class="inline-block px-8 py-3 border border-white/30 text-white font-bold tracking-widest uppercase hover:bg-white hover:text-[#0E1B2D] transition-all duration-300">
-                        Connect on LinkedIn
-                    </a>
-                </div>
-            </div>
-
-            <!-- Image Side (Cut-out) -->
-            <div class="flex-1 w-full max-w-xl relative flex justify-center md:justify-end">
-                <!-- Circular/Geometric Backing (Torre Style) -->
-                <div
-                    class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[120%] h-[120%] border border-white/10 rounded-full animate-[spin-slow_60s_linear_infinite]">
-                </div>
-                <div
-                    class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[90%] h-[90%] border border-white/5 rounded-full">
-                </div>
-
-                <!-- Transparent Image (Navy BG Match) -->
-                <img src="Untitled design.png" alt="Abbie Bowtell"
-                    class="relative z-10 w-full md:w-[90%] h-auto object-contain">
             </div>
         </div>
     </section>
@@ -338,7 +363,7 @@
             </div>
 
             <!-- Right Side: Email -->
-            <div class="text-right">
+            <div class="text-left md:text-right">
                 <a href="mailto:abbie@36va.co"
                     class="text-lg md:text-xl font-bold hover:text-[#E31C5F] transition-colors duration-300">
                     abbie@36va.co
