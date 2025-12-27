@@ -104,12 +104,16 @@
 
     <!-- Header -->
     <header
-        class="absolute top-0 left-0 w-full pt-6 md:pt-10 px-8 md:px-16 z-[100] flex justify-center md:justify-start">
+        class="absolute top-0 left-0 w-full pt-6 md:pt-10 px-8 md:px-16 z-[100] flex justify-center md:justify-start items-center gap-6">
         <div class="logo-container animate-[reveal_1s_ease-out_forwards]">
             <!-- Updated: MAXIMUM Size as requested (h-32 on desktop) + Shadow for "sundor" look -->
-            <img src="NEW.png" alt="360 Partners"
+            <img src="Logo - black background.png" alt="360 Partners"
                 class="h-24 md:h-36 w-auto opacity-100 drop-shadow-sm hover:scale-105 transition-transform duration-300">
         </div>
+        <p
+            class="text-xs md:text-sm font-bold tracking-[0.2em] text-slate-400 uppercase animate-[reveal_1s_ease-out_forwards] md:mt-0">
+            New Site In Development
+        </p>
     </header>
 
     <!-- Confetti Container -->
@@ -123,27 +127,23 @@
 
             <!-- Hero Content -->
             <div class="relative z-10 max-w-5xl mx-auto flex flex-col items-center hero-content">
-                <!-- Tiny Tagline -->
-                <p
-                    class="text-xs md:text-sm font-bold tracking-[0.2em] text-slate-400 uppercase mb-8 animate-[reveal_1s_ease-out_forwards]">
-                    New Site In Development
-                </p>
+
 
                 <!-- Main Headline -->
                 <h1
-                    class="text-4xl md:text-6xl lg:text-7xl font-extrabold tracking-tight mb-8 leading-tight text-[#0E1B2D] uppercase animate-[reveal_1s_ease-out_0.2s_forwards]">
-                    Elite Fractional&nbsp;And<br> Full-Time Talent
+                    class="text-4xl md:text-6xl lg:text-7xl tracking-tight mb-8 leading-tight text-[#0E1B2D] uppercase animate-[reveal_1s_ease-out_0.2s_forwards]">
+                    Elite <span class="font-extrabold">Fractional&nbsp;And<br> Full-Time</span> Talent
                 </h1>
 
                 <!-- Subtext -->
                 <h2
-                    class="text-xl md:text-2xl font-medium text-[#0E1B2D] opacity-80 max-w-3xl leading-relaxed mb-12 animate-[reveal_1s_ease-out_0.4s_forwards]">
+                    class="text-xl md:text-2xl  text-[#17263d]  max-w-3xl leading-relaxed mb-12 animate-[reveal_1s_ease-out_0.4s_forwards]">
                     360Partners connects high-growth businesses with exceptional fractional and full-time professionals
                     across operations, finance, technology, and strategy.
                 </h2>
 
                 <button onclick="document.getElementById('contact').scrollIntoView({behavior: 'smooth'});"
-                    class="hero-btn group relative inline-flex items-center justify-center px-10 py-5 text-sm font-bold text-white uppercase tracking-widest transition-all duration-200 bg-[#E31C5F] hover:bg-[#c41550] hover:shadow-lg hover:-translate-y-1 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-[#E31C5F] animate-[reveal_1s_ease-out_0.6s_forwards]">
+                    class="hero-btn group relative inline-flex items-center justify-center px-10 py-5 text-sm font-bold text-white uppercase tracking-widest transition-all duration-200 bg-[#2FB7A6] hover:bg-[#2fb7a6] hover:shadow-lg hover:-translate-y-1 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-[#E31C5F] animate-[reveal_1s_ease-out_0.6s_forwards]">
                     Contact Us
                 </button>
             </div>
@@ -164,8 +164,8 @@
             <!-- Left Side: Headline + Profile Block -->
             <div class="flex-1 w-full relative pt-8 md:pt-0 pl-0 md:pl-16">
                 <!-- Vertical Line Decoration (Full Height of Left Section) -->
-                <div class="absolute left-0 top-0 bottom-0 w-[1px] bg-white hidden md:block h-[120%] -translate-y-12">
-                </div>
+                <!-- Vertical Line Decoration (Full Height of Left Section) -->
+                <!-- Removed per user request -->
 
                 <!-- Headline -->
                 <div class="mb-5 md:mb-10 relative text-center md:text-left">
@@ -178,9 +178,8 @@
                 <!-- Profile Block: Image + Info -->
                 <div class="relative flex flex-row items-end justify-cen ter md:justify-start gap-4 md:gap-8">
                     <!-- Circular Line Decoration (Reference Match) -->
-                    <div
-                        class="absolute bottom-[-20%] left-[5%] w-[120%] h-[150%] border-t-[0.5px] border-r-[0.5px] border-white/20 rounded-[100%] rotate-[-45deg] -z-10 pointer-events-none">
-                    </div>
+                    <!-- Circular Line Decoration (Reference Match) -->
+                    <!-- Removed per user request -->
 
                     <!-- Image -->
                     <div class="relative w-[220px] md:w-[380px] flex-shrink-0">
@@ -215,15 +214,15 @@
                 <div class="h-px w-24 bg-white/20 mx-auto md:mx-0 mb-8 block md:hidden"></div>
 
                 <p class="text-xl md:text-2xl text-slate-300 leading-relaxed font-light">
-                    After a decade supporting senior leadership at <span class="text-white font-semibold">Goldman
-                        Sachs</span> and helping scale <span class="text-white font-semibold">20VC</span> from launch to
-                    a $500M fund, Abbie saw the same pattern everywhere: when the right operators are embedded,
-                    performance compounds.
+                    After a decade at <span class="text-white font-semibold">Goldman Sachs,</span> working across London
+                    and Dubai, and helping scale
+                    <span class="text-white font-semibold">20VC </span>from launch to a $500M fund, Abbie saw the same
+                    pattern everywhere: when the right operators are embedded early, performance compounds.
                 </p>
 
                 <p class="text-xl md:text-2xl text-slate-300 font-medium leading-relaxed">
-                    She created <strong class="text-white">360Partners</strong> to give Executives flexible access to
-                    Strategic EAs, Operations Leaders, and CFOs who deliver from day one.
+                    She founded <strong class="text-white">360Partners</strong> to give executives flexible access to
+                    exceptional talent - experienced professionals who integrate quickly and deliver from day one.
                 </p>
             </div>
         </div>
@@ -239,39 +238,39 @@
                 class="flex gap-16 md:gap-24 animate-[scroll_30s_linear_infinite] w-max items-center opacity-60 grayscale hover:grayscale-0 transition-all duration-500">
                 <!-- Logos (Set 1) -->
                 <img src="https://placehold.co/180x50/transparent/1e293b?text=Goldman+Sachs&font=serif"
-                    alt="Goldman Sachs" class="h-12 md:h-16 w-auto object-contain">
+                    alt="Goldman Sachs" class="h-10 md:h-12 w-auto object-contain">
                 <img src="https://placehold.co/100x50/transparent/1e293b?text=20VC&font=montserrat" alt="20VC"
-                    class="h-8 md:h-10 w-auto object-contain">
+                    class="h-10 md:h-12 w-auto object-contain">
                 <img src="https://placehold.co/180x50/transparent/1e293b?text=J.P.+Morgan&font=serif" alt="JP Morgan"
-                    class="h-8 md:h-10 w-auto object-contain">
+                    class="h-10 md:h-12 w-auto object-contain">
                 <img src="https://placehold.co/120x50/transparent/1e293b?text=Google&font=roboto" alt="Google"
-                    class="h-8 md:h-10 w-auto object-contain">
+                    class="h-10 md:h-12 w-auto object-contain">
                 <img src="https://placehold.co/120x50/transparent/1e293b?text=Amazon&font=lato" alt="Amazon"
-                    class="h-8 md:h-10 w-auto object-contain">
+                    class="h-10 md:h-12 w-auto object-contain">
                 <img src="https://placehold.co/140x50/transparent/1e293b?text=Tokinvest&font=montserrat" alt="tokinvest"
-                    class="h-8 md:h-10 w-auto object-contain">
+                    class="h-10 md:h-12 w-auto object-contain">
                 <img src="https://placehold.co/120x50/transparent/1e293b?text=Quetzel&font=playfair" alt="Quetzel"
-                    class="h-8 md:h-10 w-auto object-contain">
+                    class="h-10 md:h-12 w-auto object-contain">
                 <img src="https://placehold.co/140x50/transparent/1e293b?text=Sturgeon&font=oswald" alt="Sturgeon"
-                    class="h-5 md:h-7 w-auto object-contain">
+                    class="h-10 md:h-12 w-auto object-contain">
 
                 <!-- Logos (Set 2 Duplicate) -->
                 <img src="https://placehold.co/180x50/transparent/1e293b?text=Goldman+Sachs&font=serif"
-                    alt="Goldman Sachs" class="h-12 md:h-16 w-auto object-contain">
+                    alt="Goldman Sachs" class="h-10 md:h-12 w-auto object-contain">
                 <img src="https://placehold.co/100x50/transparent/1e293b?text=20VC&font=montserrat" alt="20VC"
-                    class="h-8 md:h-10 w-auto object-contain">
+                    class="h-10 md:h-12 w-auto object-contain">
                 <img src="https://placehold.co/180x50/transparent/1e293b?text=J.P.+Morgan&font=serif" alt="JP Morgan"
-                    class="h-8 md:h-10 w-auto object-contain">
+                    class="h-10 md:h-12 w-auto object-contain">
                 <img src="https://placehold.co/120x50/transparent/1e293b?text=Google&font=roboto" alt="Google"
-                    class="h-8 md:h-10 w-auto object-contain">
+                    class="h-10 md:h-12 w-auto object-contain">
                 <img src="https://placehold.co/120x50/transparent/1e293b?text=Amazon&font=lato" alt="Amazon"
-                    class="h-8 md:h-10 w-auto object-contain">
+                    class="h-10 md:h-12 w-auto object-contain">
                 <img src="https://placehold.co/140x50/transparent/1e293b?text=Tokinvest&font=montserrat" alt="tokinvest"
-                    class="h-8 md:h-10 w-auto object-contain">
+                    class="h-10 md:h-12 w-auto object-contain">
                 <img src="https://placehold.co/120x50/transparent/1e293b?text=Quetzel&font=playfair" alt="Quetzel"
-                    class="h-8 md:h-10 w-auto object-contain">
+                    class="h-10 md:h-12 w-auto object-contain">
                 <img src="https://placehold.co/140x50/transparent/1e293b?text=Sturgeon&font=oswald" alt="Sturgeon"
-                    class="h-5 md:h-7 w-auto object-contain">
+                    class="h-10 md:h-12 w-auto object-contain">
             </div>
         </div>
 
@@ -300,8 +299,8 @@
 
             <!-- Headline -->
             <div class="text-center mb-12">
-                <h2 class="text-4xl md:text-5xl font-bold text-slate-900 mb-4">Get in Touch with us Today </h2>
-                <p class="text-lg text-slate-500">We'd love to hear from you.</p>
+                <h2 class="text-4xl md:text-5xl font-bold text-[#17263b] mb-4">Get in Touch with us Today </h2>
+                <p class="text-lg text-[#17263b]">We'd love to hear from you.</p>
             </div>
 
             <!-- Form Card -->
@@ -335,7 +334,7 @@
                     </div>
 
                     <button type="submit"
-                        class="w-full py-5 bg-slate-900 text-white font-bold rounded-xl shadow-lg shadow-slate-900/10 hover:bg-indigo-600 hover:shadow-indigo-600/30 hover:-translate-y-1 transition-all duration-300 flex items-center justify-center gap-3 group">
+                        class="w-full py-5 bg-[#47b599] text-white font-bold rounded-xl shadow-lg shadow-[#46c2a7]/10 hover:bg-[#46c2a7] hover:shadow-[#46c2a7]/30 hover:-translate-y-1 transition-all duration-300 flex items-center justify-center gap-3 group">
                         Send Message
                         <span class="inline-block transition-transform duration-300 group-hover:translate-x-1">→</span>
                     </button>
@@ -354,29 +353,24 @@
                 <div class="flex flex-col md:flex-row gap-8 max-w-3xl items-start">
                     <!-- Logo -->
                     <div class="flex-shrink-0">
-                        <img src="NEW.png" alt="360 Partners" class="h-16 w-auto">
+                        <img src="Logo - black background.png" alt="360 Partners" class="h-24 md:h-28 w-auto">
                     </div>
                     <!-- Description -->
                     <p class="text-sm md:text-base font-medium leading-relaxed opacity-70 text-slate-600 max-w-lg">
-                        360Partners is a specialist executive search firm for PE-backed B2B software services, combining
-                        deep sector expertise with partner-led, tech-enabled delivery.
+                        360Partners connects high-growth businesses with exceptional fractional and full-time
+                        professionals
+                        across operations, finance, technology, and strategy.
                     </p>
                 </div>
 
                 <!-- Right: Contact -->
                 <div class="flex flex-col items-start md:items-end space-y-3 min-w-max">
-                    <h4 class="text-[#E31C5F] font-bold text-xs tracking-[0.2em] uppercase">
+                    <h4 class="text-[#2FB7A6] font-bold text-xs tracking-[0.2em] uppercase">
                         Contact Us
                     </h4>
-                    <a href="mailto:abbie@36va.co"
-                        class="flex items-center gap-3 text-lg md:text-xl font-bold text-[#0E1B2D] hover:text-[#E31C5F] transition-colors duration-300 group">
-                        <!-- Red Paper Plane Icon -->
-                        <svg class="w-5 h-5 text-[#E31C5F] transition-transform group-hover:-translate-y-1 group-hover:translate-x-1"
-                            fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8"></path>
-                        </svg>
-                        abbie@36va.co
+                    <a href="mailto:abbie@360partners.co"
+                        class="flex items-center gap-3 text-lg md:text-xl font-bold text-[#17263d] hover:text-[#2FB7A6] transition-colors duration-300 group">
+                        abbie@360partners.co
                     </a>
                 </div>
             </div>
