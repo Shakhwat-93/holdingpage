@@ -63,18 +63,63 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     }
 
+    // Google Sheet URL (User to provide)
+    const GOOGLE_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbwwMLe3ldpdJfgXHYIolAVp0Jd5m2FtNy0ovF1U7qEsTa9OdkZ56J2rhny01psExHlTBA/exec';
+
     if (contactForm) {
         contactForm.addEventListener('submit', function (e) {
             e.preventDefault(); // Stop actual submission
 
-            // Show Popup
-            if (popup) {
-                popup.classList.remove('opacity-0', 'pointer-events-none');
-                // Trigger card animation
-                if (popupCard) {
-                    popupCard.classList.remove('translate-y-10', 'scale-95');
-                }
+            const submitBtn = contactForm.querySelector('button[type="submit"]');
+            const originalBtnText = submitBtn.innerHTML;
+
+            // Gather Data
+            const formData = {
+                name: document.getElementById('name').value,
+                email: document.getElementById('email').value,
+                message: document.getElementById('message').value
+            };
+
+            // Basic Validation
+            if (!formData.name || !formData.email || !formData.message) {
+                alert('Please fill in all fields.');
+                return;
             }
+
+            // Show Loading State
+            submitBtn.disabled = true;
+            submitBtn.innerHTML = 'Sending...';
+
+            fetch(GOOGLE_SCRIPT_URL, {
+                method: 'POST',
+                body: JSON.stringify(formData),
+                mode: 'no-cors', // Important for Google Apps Script Web App
+                headers: {
+                    'Content-Type': 'application/json'
+                }
+            })
+                .then(() => {
+                    // Success (no-cors mode always returns opaque response, so we assume success if no network error)
+                    // Show Popup
+                    if (popup) {
+                        popup.classList.remove('opacity-0', 'pointer-events-none');
+                        // Trigger card animation
+                        if (popupCard) {
+                            popupCard.classList.remove('translate-y-10', 'scale-95');
+                        }
+                    }
+                    // Reset Form
+                    contactForm.reset();
+                })
+                .catch(error => {
+                    console.error('Error:', error);
+                    alert('Something went wrong. Please try again later.');
+                })
+                .finally(() => {
+                    // Reset Button
+                    submitBtn.disabled = false;
+                    submitBtn.innerHTML = originalBtnText;
+                });
         });
     }
 
